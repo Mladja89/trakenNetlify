@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Céline Spillmann",
+        "desc":"Co-Founder ",
+        "info": {
+            "edu": "University title here",
+            "mail": "casus@casus.ch",
+            "li": "https://www.linkedin.com/showcase/casus"
+        },
+        "image":{
+            "src":"./images/about-1.jpg"
+        }
+    },
+    {
+        "name": "Fabian Staub",
+        "desc":"Co-Founder ",
+        "info": {
+            "edu": "University title here",
+            "mail": "casus@casus.ch",
+            "li": "https://www.linkedin.com/showcase/casus"
+        },
+        "image":{
+            "src":"./images/about-2.jpg"
+        }
+    },
+    {
+        "name": "Céline Spillmann",
+        "desc":"Co-Founder ",
+        "info": {
+            "edu": "University title here",
+            "mail": "casus@casus.ch",
+            "li": "https://www.linkedin.com/showcase/casus"
+        },
+        "image":{
+            "src":"./images/about-3.jpg"
+        }
+    },
+    {
+        "name": "Fabian Staub",
+        "desc":"Co-Founder ",
+        "info": {
+            "edu": "University title here",
+            "mail": "casus@casus.ch",
+            "li": "https://www.linkedin.com/showcase/casus"
+        },
+        "image":{
+            "src":"./images/about-4.jpg"
+        }
+    },
+    {
+        "name": "Céline Spillmann",
+        "desc":"Co-Founder ",
+        "info": {
+            "edu": "University title here",
+            "mail": "casus@casus.ch",
+            "li": "https://www.linkedin.com/showcase/casus"
+        },
+        "image":{
+            "src":"./images/about-5.jpg"
+        }
+    },
+    {
+        "name": "Fabian Staub",
+        "desc":"Co-Founder ",
+        "info": {
+            "edu": "University title here",
+            "mail": "casus@casus.ch",
+            "li": "https://www.linkedin.com/showcase/casus"
+        },
+        "image":{
+            "src":"./images/about-6.jpg"
+        }
+    }
+]

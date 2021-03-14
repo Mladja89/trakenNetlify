@@ -1,0 +1,30 @@
+[
+    {
+        "name": "Céline Spillmann",
+        "desc":"Co-Founder ",
+        "image":{
+            "src":"./images/about-1.jpg"
+        }
+    },
+    {
+        "name": "Fabian Staub",
+        "desc":"Co-Founder ",
+        "image":{
+            "src":"./images/about-2.jpg"
+        }
+    },
+    {
+        "name": "Céline Spillmann",
+        "desc":"Co-Founder ",
+        "image":{
+            "src":"./images/about-1.jpg"
+        }
+    },
+    {
+        "name": "Fabian Staub",
+        "desc":"Co-Founder ",
+        "image":{
+            "src":"./images/about-2.jpg"
+        }
+    }
+]

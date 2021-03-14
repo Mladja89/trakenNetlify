@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Bär & Karrer AG",
+        "desc":"Lorem ipsum description",
+        "website": "www.baerkarrer.ch",
+        "image":{
+            "src":"./images/partner-1.jpg"
+        }
+    },
+    {
+        "name": "Schellenberg Wittmer",
+        "desc":"Lorem ipsum description",
+        "website": "www.swlegal.ch",
+        "image":{
+            "src":"./images/partner-2.jpg"
+        }
+    },
+    {
+        "name": "Homburger",
+        "desc":"Lorem ipsum description",
+        "website": "www.homburger.ch",
+        "image":{
+            "src":"./images/partner-3.jpg"
+        }
+    },
+    {
+        "name": "Baker McKenzie",
+        "desc":"Lorem ipsum description",
+        "website": "www.bakermckenzie.ch",
+        "image":{
+            "src":"./images/partner-4.jpg"
+        }
+    }
+]
