@@ -3,9 +3,6 @@ import styled from "@emotion/styled";
 import { css } from "@emotion/core";
 import { Link } from "gatsby";
 import Headroom from "react-headroom";
-import usePhotos from "../hooks/use-photos";
-import MailSusbscription from "./mail-subscription"
-import { faFileExcel } from "@fortawesome/free-solid-svg-icons";
 
 const NavLink = styled(Link)`
   color: #222;
@@ -34,8 +31,6 @@ export default class Header extends React.Component {
 
     const MEDIA_MAX_WIDTH = 576;
     const navLinks = [
-      // { value: "Produkt", link: "/produkt/" },
-      // { value: "Preise", link: "/preise/" },
       { value: "Home", link: "/" }, 
       { value: "Projects", link: "/kontakt/" },
       { value: "News", link: "/kontakt/" },
@@ -45,9 +40,7 @@ export default class Header extends React.Component {
       <Headroom disable={false} >
         <header
           css={css`
-            background: ${typeof window !== 'undefined' && window.location.pathname !== "/"
-              ? "#383d4d"
-              : "white"};
+            background: white;
             z-index: 999;
             height: 80px;
             display: flex;
@@ -71,6 +64,10 @@ export default class Header extends React.Component {
               padding-bottom: 5px;
               margin: 0px 10px;
               color: ${typeof window !== 'undefined' && window.location.pathname !== "/" ? "white" : "#383d4d"};
+              :hover {
+                color: #32b1ca;
+                text-decoration: none;
+              }
             }
             @media (max-width: ${MEDIA_MAX_WIDTH}px) {
                 

@@ -1,37 +1,22 @@
 import React from "react";
 import Layout from "../components/layout";
-import CasusSection from "../components/casus-section";
-import Bluedot from "../components/blue-dot";
-import Cardone from "../components/cards-one";
-import CasusAccordion from "../components/selectable-accordion";
 import { css } from "@emotion/core";
-import styled from "@emotion/styled";
-import usePhotos from "../hooks/use-photos";
-import Image from "gatsby-image";
-import BackgroundImage from "gatsby-background-image";
-import useAccordion from "../hooks/use-accordion";
-import MailSubscription from "../components/mail-subscription";
-import Typist from "react-typist";
 
 export default () => {
-  const BLUE_DOT_HEIGHT = 180 * 2;
-  const MEDIA_MAX_WIDTH = 576;
-  const accordionData = useAccordion();
+  // const photos = usePhotos();
+  // const hero = photos.find((test) =>
+  //   test.node.childImageSharp.fluid.src.includes("hero")
+  // );
 
-  const photos = usePhotos();
-  const hero = photos.find((test) =>
-    test.node.childImageSharp.fluid.src.includes("hero")
-  );
-
-  const ImageBackground = styled(BackgroundImage)`
-    background-size: cover;
-    display: flex;
-    min-heigh: 600px;
-    width: 100%;
-    + * {
-      margin-top: 0;
-    }
-  `;
+  // const ImageBackground = styled(BackgroundImage)`
+  //   background-size: cover;
+  //   display: flex;
+  //   min-height: 600px;
+  //   width: 100%;
+  //   + * {
+  //     margin-top: 0;
+  //   }
+  // `;
 
   return (
     <>
@@ -115,12 +100,12 @@ export default () => {
               position: absolute;
               width: 100%;
               height: calc(100% - 80px);
-              background: url(/ico/slideicons/mreza-bg.png);
+              background: url("/ico/slideicons/mreza-bg.png");
               background-repeat: no-repeat;
               top: 60%;
               opacity: 20%;
               pointer-events: none;
-              z-index: 1;
+              z-index: 0;
             }
             img {
               z-index: 3;
@@ -144,7 +129,11 @@ export default () => {
             }
           `}
         >
-          <div>
+          <div css={css`
+            > img {
+              width: 100%;
+            }
+          `}>
             <div>
               <h2>Challenges</h2>
               <h2>of electrical ecosystem</h2>
@@ -359,37 +348,38 @@ export default () => {
               pointer-events: none;
             }
             div {
-              z-index: 2;
+              z-index: 0;
               max-width: 1200px;
             }
             > div {
               display: flex;
               flex-direction: column;
+              text-align: center;
               div::nth-of-type(1) {
                 display: flex;
                 align-items: center;
               }
               h2 {
-                /* color: #32b1ca;
-                text-transform: uppercase; */
+                color: #32b1ca;
                 font-weight: 200;
                 font-size: 50px;
-                color: white;
+                /* color: white; */
                 span {
                   font-weight: 400;
                 }
               }
               div {
-                color: #9e9e9e;
+                color: white;
                 margin-bottom: 30px;
                 font-size: 20px;
-                font-weight: 200;
+                font-weight: 400;
               }
               div > h6 {
-                /* color: #32b1ca; */
-                color: white;
+                color: #32b1ca;
+                text-transform: uppercase;
+                /* color: white; */
                 font-size: 25px;
-                font-weight: 200;
+                font-weight: 600;
               }
             }
           `}
@@ -485,285 +475,130 @@ export default () => {
           </div>
         </section>
 
-        <section>
-          <h2>Electric energy becomes a liquid asset</h2>
+        <section
+          css={css`
+            background: #020202;
+            display: flex;
+            justify-content: center;
+            > div {
+              display: flex;
+              flex-direction: row;
+              padding: 80px 0px;
+              > div:nth-of-type(1) {
+                display: flex;
+                align-items: center;
+              }
+              h2 {
+                color: #32b1ca;
+                text-transform: uppercase;
+                font-weight: 600;
+              }
+              div > h6 {
+                color: #32b1ca;
+              }
+              div > ul > li {
+                color: #c3c3c3;
+              }
+            }
+          `}
+        >
           <div>
-            <h3> CONSUMER BENEFITS ARE AMAZING</h3>
-
-            <ul>
-              <li>Peer-to-Peer trading</li>
-              <li>Real time trading or production permits</li>
-              <li>Transparency and provenance</li>
-              <li>Origin tracking</li>
-              <li>New financing models</li>
-              <li>Democratizing investment</li>
-              <li>Realization of non-financial value</li>
-            </ul>
+            <div>
+              <img src={"/ico/slideicons/slide10.png"}></img>
+            </div>
+            <div>
+              <h2>Electric energy becomes a liquid asset</h2>
+              <div>
+                <h6> CONSUMER BENEFITS ARE AMAZING</h6>
+                <ul>
+                  <li>Peer-to-Peer trading</li>
+                  <li>Real time trading or production permits</li>
+                  <li>Transparency and provenance</li>
+                  <li>Origin tracking</li>
+                  <li>New financing models</li>
+                  <li>Democratizing investment</li>
+                  <li>Realization of non-financial value</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
-        {/* <CasusSection>
+        <section>
           <div
-            className={"hero-img-wrapper"}
             css={css`
+              background: url("/white-bg.svg");
+              background-position: 50%;
+              background-size: cover;
               display: flex;
               flex-direction: column;
-              width: 100%;
-              > div {
-                display: flex;
-                flex-direction: column;
-                width: 100%;
-                justify-content: center;
-                div {
-                  display: flex;
-                  justify-content: center;
-                }
-              }
-              .hero-top {
-                padding: 140px 0px;
-                .zugang {
-                  color: rgb(57, 61, 76);
-                  font-size: 48px;
-                  font-weight: bold;
-                  font-family: "Butler";
-                  .Typist .Cursor {
-                    display: inline-block;
-
-                    &--blinking {
-                      opacity: 1;
-                      animation: blink 1.4s linear infinite;
-                      @keyframes blink {
-                        0% {
-                          opacity: 1;
-                        }
-                        50% {
-                          opacity: 0;
-                        }
-                        100% {
-                          opacity: 1;
-                        }
-                      }
-                    }
-                  }
-                  span {
-                    color: #007bfe;
-                    padding-right: 15px;
-                  }
-                }
-                .sub-zugang {
-                  font-size: 22px;
-                  font-family: Heebo;
-                  text-align: center;
-                  color: #737783;
-                  margin: 40px 0px;
-                }
-              }
-              .hero-bottom {
-                background-image: url("./customsvghero.svg");
-                background-repeat: no-repeat;
-                background-size: cover;
-                .gatsby-image-wrapper {
-                  margin: 0px 140px;
-                }
-              }
-            `}
-          >
-            <div className={"hero-top"}>
-              <div className={"zugang"}>
-                <Typist>
-                  Zugang zu Recht<span>. </span> Für alle<span>. </span>{" "}
-                  Jederzeit
-                  <span>.</span>
-                </Typist>
-              </div>
-              <div className={"sub-zugang"}>
-                Wir denken Recht neu. CASUS legt im Sommer 2020 für Sie los.
-                <br></br>
-                Bleiben Sie per Mail auf dem Laufenden.
-              </div>
-              <div>
-                <MailSubscription />
-              </div>
-            </div>
-            <div className={"hero-bottom"}>
-              <Image fluid={heroimg.node.childImageSharp.fluid}></Image>
-            </div>
-          </div>
-        </CasusSection> */}
-
-        {/* <CasusSection color={"#383c4d"} height={`${BLUE_DOT_HEIGHT}px`}>
-          <Bluedot fontSize={60} fontWeight={800}>
-            <span>Mit Recht im Reinen</span>
-          </Bluedot>
-        </CasusSection> */}
-
-        {/* <CasusSection >
-          <div
-            className="row"
-            css={css`
-              display: flex;
-              margin: 170px 0px;
-              @media (max-width: ${MEDIA_MAX_WIDTH}px) {
-                justify-content: center;
-                margin: 50px 0px;
-              }
-            `}
-          >
-            <Cardone>
-              <span
-                css={css`
-                  :before {
-                    background-image: url("/ico/ico-documents.svg");
-                  }
-                `}
-              >
-                Alle Dokumente, die Sie jemals brauchen
-              </span>
-              <span>
-                Erstellen Sie Dokumente und digitalisieren Sie Ihre Verträge.
-              </span>
-            </Cardone>
-            <Cardone>
-              <span
-                css={css`
-                  :before {
-                    background-image: url("/ico/ico-cloud.svg");
-                  }
-                `}
-              >
-                Verwalten Sie alle Dokumente an einem Ort
-              </span>
-              <span>
-                Ihre Dokumente sind sicher gespeichert und von überall
-                zugänglich.
-              </span>
-            </Cardone>
-            <Cardone>
-              <span
-                css={css`
-                  :before {
-                    background-image: url("/ico/ico-video-call.svg");
-                  }
-                `}
-              >
-                Lassen Sie sich persönlich beraten
-              </span>
-              <span>Unsere Anwälte helfen Ihnen per Online-Anruf weiter.</span>
-            </Cardone>
-          </div>
-        </CasusSection> */}
-
-        {/* <CasusSection color={"#383c4d"} height={`${BLUE_DOT_HEIGHT}px`}>
-          <Bluedot fontSize={60} fontWeight={800}>
-            <span>Recht anders</span>
-          </Bluedot>
-        </CasusSection> */}
-
-        {/* <CasusSection>
-          <ImageBackground fluid={simone.node.childImageSharp.fluid}>
-            <div
-              css={css`
-                color: #393d4c;
-                max-width: 500px;
-                margin: 100px;
-                background: white;
-                padding: 40px;
-                transition: all 0.22s ease-in-out;
-                :hover {
-                  box-shadow: 0px 4px 6px #6f92a5;
-                }
-
-                div:nth-of-type(1) {
-                  font-family: Butler;
-                  font-size: 33px;
-                  font-weight: bold;
-                  line-height: 60px;
-                  margin-bottom: 100px;
-                }
-                div:nth-of-type(2) {
-                  font-family: Heebo;
-                  font-size: 20px;
-                  font-weight: bold;
-                  letter-spacing: 0.15px;
-                  line-height: 31px;
-                }
-                div:nth-of-type(3) {
-                  font-family: Heebo;
-                  font-size: 20px;
-                  letter-spacing: 0.15px;
-                  line-height: 31px;
-                }
-              `}
-            >
-              <div>
-                "CASUS hat mir viel Zeit und Energie gespart, die richtige
-                Lösung für alle <br></br> Rechtsfragen in meinem Unternehmen zu
-                finden."
-              </div>
-              <div>Simone Bullinger</div>
-              <div>CEO, Creams and Dreams </div>
-            </div>
-          </ImageBackground>
-        </CasusSection> */}
-
-        {/* <CasusSection>
-          <div
-            css={css`
-              display: flex;
-              text-align: center;
-              color: #383c4d;
-              font-weight: bold;
-              font-family: Butler;
-              font-size: 35px;
-              margin: 100px 0px;
-            `}
-          >
-            A cloud platform <br></br> that empowers companies
-          </div>
-          <CasusAccordion accordionData={accordionData}></CasusAccordion>
-          <div
-            css={css`
-              width: 100%;
-              height: 150px;
-            `}
-          ></div>
-        </CasusSection> */}
-
-        {/* <CasusSection height={"400px"} color={"#393D4C"}>
-          <div
-            css={css`
-              display: flex;
               justify-content: center;
-              flex-direction: column;
-              color: #ffffff;
-              text-align: center;
-              div {
-                font-family: Butler;
-                font-size: 28px;
-                font-weight: 500;
-                line-height: 44px;
-                text-align: center;
-                margin-bottom: 40px;
+              align-items: center;
+              padding: 80px 0px;
+              .team-title {
+                color: #32b1ca;
+                font-size: 60px;
+                font-weight: 200;
+                margin-bottom: 70px;
               }
-              .author {
-                font-size: 14px;
+              .team {
+                display: flex;
+                flex-direction: row;
+
+                div {
+                  max-width: 400px;
+                  margin: 0px 25px;
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  img {
+                    margin-bottom: 25px;
+                  }
+                  h2 {
+                    color: #32b1ca;
+                    font-size: 30px;
+                  }
+                }
               }
-              .author-content {
-                font-size: 12px;
-                color: #9a9da5;
+              > img {
+                margin-top: 150px;
+                max-width: 450px;
               }
             `}
           >
-            <div>
-              "Die Cloud-Platform CASUS hat die die traditionelle Art <br></br>{" "}
-              und Weise Rechtsdienstleistungen zu erhalten"
+            <div className={"team-title"}>Project Team</div>
+            <div className={"team"}>
+              <div>
+                <img src={"/ico/slideicons/team1.png"}></img>
+                <h2>Strahinja Vukoičić</h2>
+                <p>
+                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  ut enim ad minim veniam,
+                </p>
+              </div>
+              <div>
+                <img src={"/ico/slideicons/team2.png"}></img>
+                <h2>Nemanja Petrović</h2>
+                <p>
+                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  ut enim ad minim veniam,
+                </p>
+              </div>
+              <div>
+                <img src={"/ico/slideicons/team3.png"}></img>
+                <h2>Miloš Solujić</h2>
+                <p>
+                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  ut enim ad minim veniam,
+                </p>
+              </div>
             </div>
-            <span className="author">Emilia Wagner</span>
-            <span className="author-content">
-              Rechtsanwalt bei Lenz & Staehelin
-            </span>
+            <img src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}></img>
           </div>
-        </CasusSection> */}
+        </section>
       </Layout>
     </>
   );
