@@ -88,6 +88,142 @@ export default () => {
         </section>
 
         <section
+          className={"slide-2"}
+          css={css`
+            display: flex;
+            flex-direction: column;
+            background: #020202;
+            align-items: center;
+            padding-bottom: 60px;
+            h6,
+            div {
+              color: #c3c3c3;
+            }
+            .info-wrapper {
+              max-width: 1200px;
+              .products-wrap {
+                display: flex;
+                flex-wrap: wrap;
+                > div {
+                  display: flex;
+                  flex-basis: 30%;
+                  margin: 0px 20px;
+                  flex-direction: column;
+                  align-items: center;
+                  /* margin-bottom: 40px; */
+                  div {
+                    line-height: 1.5;
+                    img {
+                      margin-right: 30px;
+                      min-height: 112px;
+                      margin-bottom: 50px;
+                    }
+                    h6 {
+                      text-transform: uppercase;
+
+                      color: #32b1ca;
+                    }
+                    > h2 {
+                      font-size: 30px;
+                      color: #32b1ca;
+                      text-align: center;
+                    }
+                  }
+                }
+              }
+
+              > h6 {
+                font-size: 28px;
+                font-weight: 200;
+                text-align: center;
+                margin-bottom: 80px;
+                > span {
+                  font-weight: 800;
+                }
+              }
+            }
+          `}
+        >
+          <div className={"info-wrapper"}>
+            <h6>
+              <span>TRAKEN</span> is a data tracking, management and
+              exploitation tool for smart electrical grids, that provides a
+              distributed ledger to manage metering records, track physical
+              objects and transfer value without a third party or manual
+              reconciliation.{" "}
+            </h6>
+
+            <div className={"products-wrap"}>
+              <div>
+                <div>
+                  <img src={"/ico/product/protocol.png"}></img>
+                </div>
+                <div>
+                  <h2>Protocol</h2>
+                  <h6>
+                    Interoperability and seamless flow of data between different
+                    networks
+                  </h6>
+                  <p>
+                    Protocol will provide interoperability and seamless flow of
+                    data between different networks. Using Ricardian and smart
+                    contracts such encrypted IDs of smart meters and consumption
+                    data will engage with prosumer Self-Sovereign Identity (SSI)
+                    in validated interactions, events and transactions including
+                    PPEs. Smart contracts govern what types of relationships can
+                    be established between different identified entities within
+                    the system and how those relationships can be interpreted
+                    based on pre-determined composition.
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src={"/ico/product/passport.png"}></img>
+                </div>
+                <div>
+                  <h2>Product passport </h2>
+                  <h6>
+                    Interoperability and seamless flow of data between different
+                    networks
+                  </h6>
+                  <p>
+                    A product passport is a digital twin of a device in
+                    blockchain space. It allows the device to be identified and
+                    labeled, to enter into agreements and to be accounted for
+                    tracking and measurement. We have created framework for
+                    standardized product passports generation and protocol for
+                    recording of such data to DLT;
+                  </p>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <img src={"/ico/product/der.png"}></img>
+                </div>
+                <div>
+                  <h2> Distributed energy resource (DER) registry </h2>
+                  <h6>
+                    Interoperability and seamless flow of data between different
+                    networks
+                  </h6>
+                  <p>
+                    Data is an asset that directly translates to value, and this
+                    value can be multiplied by fusing data shared among
+                    stakeholders in a value chain. DER registry will integrate
+                    distributed energy resources across all electricity networks
+                    while increasing visibility and access to data. This will
+                    enable real time validation, time tampering and aggregation
+                    of stored data while expending capacity of a two-way energy
+                    system.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
           css={css`
             background: black;
             display: flex;
@@ -129,11 +265,13 @@ export default () => {
             }
           `}
         >
-          <div css={css`
-            > img {
-              width: 100%;
-            }
-          `}>
+          <div
+            css={css`
+              > img {
+                width: 100%;
+              }
+            `}
+          >
             <div>
               <h2>Challenges</h2>
               <h2>of electrical ecosystem</h2>
@@ -142,86 +280,7 @@ export default () => {
           </div>
         </section>
 
-        <section
-          className={"slide-2"}
-          css={css`
-            display: flex;
-            flex-direction: column;
-            background: #020202;
-            align-items: center;
-            padding-bottom: 60px;
-            h6,
-            div {
-              color: #c3c3c3;
-              line-height: 1.5;
-              > h2 {
-                color: #32b1ca;
-              }
-            }
-            .info-wrapper {
-              max-width: 1200px;
-              > h6 {
-                font-size: 28px;
-                font-weight: 200;
-                text-align: center;
-                margin-bottom: 80px;
-                > span {
-                  font-weight: 800;
-                }
-              }
-            }
-          `}
-        >
-          <div className={"info-wrapper"}>
-            <h6>
-              <span>TRAKEN</span> is a data tracking, management and
-              exploitation tool for smart electrical grids, that provides a
-              distributed ledger to manage metering records, track physical
-              objects and transfer value without a third party or manual
-              reconciliation.{" "}
-            </h6>
-
-            <div>
-              <h2>Protocol</h2>
-              <h6>
-                Protocol will provide interoperability and seamless flow of data
-                between different networks. Using Ricardian and smart contracts
-                such encrypted IDs of smart meters and consumption data will
-                engage with prosumer Self-Sovereign Identity (SSI) in validated
-                interactions, events and transactions including PPEs. Smart
-                contracts govern what types of relationships can be established
-                between different identified entities within the system and how
-                those relationships can be interpreted based on pre-determined
-                composition.
-              </h6>
-            </div>
-
-            <div>
-              <h2>Product passport </h2>
-              <h6>
-                A product passport is a digital twin of a device in blockchain
-                space. It allows the device to be identified and labeled, to
-                enter into agreements and to be accounted for tracking and
-                measurement. We have created framework for standardized product
-                passports generation and protocol for recording of such data to
-                DLT;
-              </h6>
-            </div>
-
-            <div>
-              <h2> Distributed energy resource (DER) registry </h2>
-              <h6>
-                Data is an asset that directly translates to value, and this
-                value can be multiplied by fusing data shared among stakeholders
-                in a value chain. DER registry will integrate distributed energy
-                resources across all electricity networks while increasing
-                visibility and access to data. This will enable real time
-                validation, time tampering and aggregation of stored data while
-                expending capacity of a two-way energy system.
-              </h6>
-            </div>
-          </div>
-        </section>
+        
 
         <section>
           <div
@@ -596,7 +655,9 @@ export default () => {
                 </p>
               </div>
             </div>
-            <img src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}></img>
+            <img
+              src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}
+            ></img>
           </div>
         </section>
       </Layout>

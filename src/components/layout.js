@@ -19,6 +19,7 @@ const Layout = ({ children }) => {
             font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
               Helvetica, Arial, sans-serif, "Apple Color Emoji",
               "Segoe UI Emoji", "Segoe UI Symbol";
+              letter-spacing: 0.2px;
           }
 
           ${"" /* * + * {
