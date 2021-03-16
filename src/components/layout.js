@@ -14,6 +14,8 @@ const Layout = ({ children }) => {
       <Global
         styles={css`
           * {
+            -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
             box-sizing: border-box;
             margin: 0;
             font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
