@@ -4,8 +4,7 @@ import { css } from "@emotion/core";
 import { Parallax } from "react-scroll-parallax";
 import { throttle } from "lodash";
 import { useTrail, a } from "react-spring";
-import { useInView } from 'react-intersection-observer';
-// import { Modal, Button } from "react-bootstrap";
+import { InView } from "react-intersection-observer";
 
 function Trail({ open, children, ...props }) {
   const items = React.Children.toArray(children);
@@ -13,7 +12,7 @@ function Trail({ open, children, ...props }) {
     config: { mass: 5, tension: 2000, friction: 200 },
     opacity: open ? 1 : 0,
     x: open ? 0 : 20,
-    height: open ? 27 : 0,
+    height: open ? 30 : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
   return (
@@ -36,25 +35,17 @@ function Trail({ open, children, ...props }) {
   );
 }
 
-export default (props) => {
+export default () => {
   const limitFirst = 1059;
-  const [ref, inView, entry] = useInView({
-    rootMargin: "-400px 0px"
-  })
-  console.log("AAAAAAAAAAA", entry);
-  let [disab, setDisab] = useState(true);
+  const rootMarginValues = "2000px 0px -200px 0px";
   const [scrollY, setScrollY] = useState(0);
-  const [show, setShow] = useState(false);
-  const [open, set] = useState(true);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const logit = () => {
     setScrollY(window.pageYOffset);
   };
 
   useEffect(() => {
-    const throttledLogit = throttle(logit, 50);
+    const throttledLogit = throttle(logit, 100);
     window.addEventListener("scroll", throttledLogit);
     return () => {
       window.removeEventListener("scroll", throttledLogit);
@@ -64,20 +55,6 @@ export default (props) => {
   return (
     <>
       <Layout>
-        {/* <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
-            </Button>
-          </Modal.Footer>
-        </Modal> */}
         <section
           css={css`
             height: calc(100vh - 20px);
@@ -282,9 +259,6 @@ export default (props) => {
                       different identified entities within the system and how
                       those relationships can be interpreted based on
                       pre-determined composition.
-                      {/* <Button variant="primary" onClick={handleShow}>
-                        Launch demo modal
-                      </Button> */}
                     </p>
                   </div>
                 </div>
@@ -412,13 +386,16 @@ export default (props) => {
               justify-content: center;
               align-items: center;
               padding: 80px 0px;
+              img {
+                width: 100%;
+              }
             `}
           >
             <img src={"/slide53.png"}></img>
           </div>
         </section>
 
-        <section ref={ref}
+        <section
           css={css`
             background: #020202;
             display: flex;
@@ -427,6 +404,14 @@ export default (props) => {
               display: flex;
               flex-direction: row;
               padding: 80px 0px;
+              .tech-right{
+                display: flex;
+                flex-direction: column;
+                align-items: baseline;
+                span {
+                  padding-left: 30px;
+                }
+              }
               > div:nth-of-type(1) {
                 display: flex;
                 align-items: center;
@@ -449,49 +434,79 @@ export default (props) => {
             <div>
               <img src={"/ico/slideicons/slide7.png"}></img>
             </div>
-            <div>
+            <div className={"tech-right"}>
               <h2>Technology stack</h2>
+
               <div>
-              <h6>Hybrid blockchain network </h6>
-                <Trail open={inView ? true : false}>
-                  
-                  <span>> Private permissioned blockchain</span>
-                  <span>
-                    >Public chain that could be deployed on other chain or chains
-                    simultaneously providing interoperability
-                  </span>
-                </Trail>
+                <h6>Hybrid blockchain network </h6>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView}>
+                        <span>> Private permissioned blockchain</span>
+                        <span>
+                          > Public chain that could be deployed on other chain or
+                          chains simultaneously providing interoperability
+                        </span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
               </div>
+
               <div>
                 <h6>Gateway Protocol</h6>
-                <ul>
-                  <li>
-                    Protocol defines identities, how it is generated, how it is
-                    stored and the way it interacts
-                  </li>
-                </ul>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView}>
+                        <span>
+                          > Protocol defines identities, how it is generated,
+                          how it is stored and the way it interacts
+                        </span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
               </div>
+
               <div>
                 <h6>Smart contracts</h6>
-                <ul>
-                  <li>
-                    Executes on its own based on the instructions provided in
-                    the computer code
-                  </li>
-                  <li>Immutable, self-verifying and auto-enforcing</li>
-                </ul>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView}>
+                        <span>>  Executes on its own based on the instructions provided in
+                    the computer code</span>
+                        <span>
+                          > Immutable, self-verifying and auto-enforcing
+                        </span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
               </div>
+
               <div>
                 <h6>Ricardian contracts</h6>
-                <ul>
-                  <li>
-                    Available in printable form, program parsable with all forms
-                    equivalent in terms of manifest
-                  </li>
-                  <li>Readable by humans and machines</li>
-                  <li>Signed by the issuer and both parties</li>
-                </ul>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView}>
+                        <span>> Available in printable form, program parsable with all forms
+                    equivalent in terms of manifest</span>
+                        <span>
+                          > Readable by humans and machines
+                        </span>
+                        <span>
+                          > Signed by the issuer and both parties
+                        </span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
               </div>
+
               <div>
                 <h6>Data Pipeline</h6>
                 <ul>
@@ -715,6 +730,7 @@ export default (props) => {
               justify-content: center;
               align-items: center;
               padding: 80px 0px;
+
               .team-title {
                 color: #32b1ca;
                 font-size: 60px;
@@ -724,7 +740,9 @@ export default (props) => {
               .team {
                 display: flex;
                 flex-direction: row;
-
+                @media (max-width: 992px) {
+                  flex-direction: column;
+                }
                 div {
                   max-width: 400px;
                   margin: 0px 25px;
