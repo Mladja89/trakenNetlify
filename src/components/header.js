@@ -84,7 +84,7 @@ export default class Header extends React.Component {
           <div className={'nav-link-group'}>
           {navLinks.map(link => (
             <NavLink
-              key={link.link}
+              key={link.value}
               to={link.link}
               activeClassName="current-page"
             >

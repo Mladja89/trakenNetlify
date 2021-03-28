@@ -3,6 +3,7 @@ import { Global, css } from "@emotion/core";
 import Helmet from "react-helmet";
 import Header from "./header";
 import Footer from "./footer";
+import { ParallaxProvider } from "react-scroll-parallax";
 import useSiteMetadata from "../hooks/use-sitemetadata";
 // import "../../static/bootstrap-grid.min.css"; // Bootstrap grid only
 
@@ -15,13 +16,13 @@ const Layout = ({ children }) => {
         styles={css`
           * {
             -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+            -moz-osx-font-smoothing: grayscale;
             box-sizing: border-box;
             margin: 0;
-            font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              Helvetica, Arial, sans-serif, "Apple Color Emoji",
+            font-family: Poppins, -apple-system, BlinkMacSystemFont, "Segoe UI",
+              Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
               "Segoe UI Emoji", "Segoe UI Symbol";
-              letter-spacing: 0.2px;
+            letter-spacing: 0.2px;
           }
 
           ${"" /* * + * {
@@ -69,6 +70,33 @@ const Layout = ({ children }) => {
             margin-left: 0;
             margin-right: 0;
           }
+          .trails-main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .trails-text {
+            position: relative;
+            width: 100%;
+            /* height: 110px; */
+            /* line-height: 110px; */
+            color: white;
+            /* font-size: 8em; */
+            font-weight: 800;
+            letter-spacing: -9px;
+            will-change: transform, opacity;
+            overflow: hidden;
+          }
+
+          .trails-text > div {
+            overflow: hidden;
+          }
         `}
       />
       <Helmet>
@@ -86,9 +114,10 @@ const Layout = ({ children }) => {
       <main
         css={css`
           padding-top: 0px;
+          margin-top: -60px;
         `}
       >
-        {children}
+        <ParallaxProvider>{children}</ParallaxProvider>
       </main>
       <Footer />
     </>

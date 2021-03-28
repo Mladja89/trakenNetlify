@@ -1,39 +1,125 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { css } from "@emotion/core";
+import { Parallax } from "react-scroll-parallax";
+import { throttle } from "lodash";
+import { useTrail, a } from "react-spring";
+import { useInView } from 'react-intersection-observer';
+// import { Modal, Button } from "react-bootstrap";
 
-export default () => {
-  // const photos = usePhotos();
-  // const hero = photos.find((test) =>
-  //   test.node.childImageSharp.fluid.src.includes("hero")
-  // );
+function Trail({ open, children, ...props }) {
+  const items = React.Children.toArray(children);
+  const trail = useTrail(items.length, {
+    config: { mass: 5, tension: 2000, friction: 200 },
+    opacity: open ? 1 : 0,
+    x: open ? 0 : 20,
+    height: open ? 27 : 0,
+    from: { opacity: 0, x: 20, height: 0 },
+  });
+  return (
+    <div className="trails-main" {...props}>
+      <div>
+        {trail.map(({ x, height, ...rest }, index) => (
+          <a.div
+            key={items[index]}
+            className="trails-text"
+            style={{
+              ...rest,
+              transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
+            }}
+          >
+            <a.div style={{ height }}>{items[index]}</a.div>
+          </a.div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
-  // const ImageBackground = styled(BackgroundImage)`
-  //   background-size: cover;
-  //   display: flex;
-  //   min-height: 600px;
-  //   width: 100%;
-  //   + * {
-  //     margin-top: 0;
-  //   }
-  // `;
+export default (props) => {
+  const limitFirst = 1059;
+  const [ref, inView, entry] = useInView({
+    rootMargin: "-400px 0px"
+  })
+  console.log("AAAAAAAAAAA", entry);
+  let [disab, setDisab] = useState(true);
+  const [scrollY, setScrollY] = useState(0);
+  const [show, setShow] = useState(false);
+  const [open, set] = useState(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const logit = () => {
+    setScrollY(window.pageYOffset);
+  };
+
+  useEffect(() => {
+    const throttledLogit = throttle(logit, 50);
+    window.addEventListener("scroll", throttledLogit);
+    return () => {
+      window.removeEventListener("scroll", throttledLogit);
+    };
+  }, []);
 
   return (
     <>
       <Layout>
+        {/* <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Modal heading</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+              Close
+            </Button>
+            <Button variant="primary" onClick={handleClose}>
+              Save Changes
+            </Button>
+          </Modal.Footer>
+        </Modal> */}
         <section
           css={css`
-            height: calc(100vh - 80px);
+            height: calc(100vh - 20px);
+            video {
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              min-width: 100%;
+              min-height: 100%;
+              z-index: -1;
+            }
+            ::after {
+              content: "";
+              position: absolute;
+              bottom: 0px;
+              left: 0;
+              width: 100%;
+              height: 150px;
+              background: linear-gradient(0deg, black, transparent);
+              z-index: 0;
+            }
+            ::before {
+              content: "";
+              position: absolute;
+              bottom: 0px;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(270deg, #3ab3cad4, #000000e3);
+              z-index: 0;
+            }
           `}
         >
           <div
             css={css`
-              background: url("/hero.png");
+              /* background: url("/hero.png"); */
+              /* background-repeat: no-repeat;
+              background-position: 50% 50%;
+              background-size: cover; */
+              position: absolute;
               width: 100%;
               height: 100%;
-              background-repeat: no-repeat;
-              background-position: 50% 50%;
-              background-size: cover;
               display: flex;
               padding-bottom: 130px;
               justify-content: center;
@@ -61,29 +147,37 @@ export default () => {
           >
             <div
               css={css`
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin-top: 50px;
+                div {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  margin-top: 50px;
+                  position: relative;
+                }
               `}
             >
-              <span
-                css={css`
-                  font-weight: 200;
-                `}
-              >
-                Smart grid
-              </span>
-              <span
-                css={css`
-                  font-weight: 600;
-                `}
-              >
-                just got smarter
-              </span>
-              <img src={"/ico/logo/traken-logo-white.png"}></img>
+              <Parallax y={[150, -140]}>
+                <span
+                  css={css`
+                    font-weight: 200;
+                  `}
+                >
+                  Smart grid
+                </span>
+                <span
+                  css={css`
+                    font-weight: 600;
+                  `}
+                >
+                  just got smarter
+                </span>
+                <img src={"/ico/logo/traken-logo-white.png"}></img>
+              </Parallax>
             </div>
           </div>
+          <video muted loop autoPlay id="myVideo">
+            <source src="/production ID_5194141.mp4" type="video/mp4"></source>
+          </video>
           {/* <Image fluid={hero.node.childImageSharp.fluid}></Image> */}
         </section>
 
@@ -95,12 +189,13 @@ export default () => {
             background: #020202;
             align-items: center;
             padding-bottom: 60px;
+            padding-top: 80px;
             h6,
             div {
               color: #c3c3c3;
             }
             .info-wrapper {
-              max-width: 1200px;
+              max-width: 1400px;
               .products-wrap {
                 display: flex;
                 flex-wrap: wrap;
@@ -113,6 +208,9 @@ export default () => {
                   /* margin-bottom: 40px; */
                   div {
                     line-height: 1.5;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     img {
                       margin-right: 30px;
                       min-height: 112px;
@@ -131,94 +229,118 @@ export default () => {
                   }
                 }
               }
-
-              > h6 {
-                font-size: 28px;
-                font-weight: 200;
-                text-align: center;
-                margin-bottom: 80px;
-                > span {
-                  font-weight: 800;
+              div {
+                > .traken-desc {
+                  font-size: 28px;
+                  font-weight: 200;
+                  text-align: center;
+                  margin-bottom: 80px;
+                  letter-spacing: 1px;
+                  color: #fff;
+                  > span {
+                    font-weight: 800;
+                  }
                 }
               }
             }
           `}
         >
           <div className={"info-wrapper"}>
-            <h6>
-              <span>TRAKEN</span> is a data tracking, management and
-              exploitation tool for smart electrical grids, that provides a
-              distributed ledger to manage metering records, track physical
-              objects and transfer value without a third party or manual
-              reconciliation.{" "}
-            </h6>
+            <Parallax y={[30, -30]}>
+              <h6 className={"traken-desc"}>
+                <span>TRAKEN</span> is a data tracking, management and
+                exploitation tool for smart electrical grids, that provides a
+                distributed ledger to manage metering records, track physical
+                objects and transfer value without a third party or manual
+                reconciliation.{" "}
+              </h6>
+            </Parallax>
 
             <div className={"products-wrap"}>
-              <div>
+              <Parallax
+                disabled={scrollY > limitFirst ? true : false}
+                y={["150px", "-150px"]}
+              >
                 <div>
-                  <img src={"/ico/product/protocol.png"}></img>
+                  <div>
+                    <img src={"/ico/product/protocol.png"}></img>
+                  </div>
+                  <div>
+                    <h2>Protocol</h2>
+                    <h6>
+                      Interoperability and seamless flow of data between
+                      different networks
+                    </h6>
+                    <p>
+                      Protocol will provide interoperability and seamless flow
+                      of data between different networks. Using Ricardian and
+                      smart contracts such encrypted IDs of smart meters and
+                      consumption data will engage with prosumer Self-Sovereign
+                      Identity (SSI) in validated interactions, events and
+                      transactions including PPEs. Smart contracts govern what
+                      types of relationships can be established between
+                      different identified entities within the system and how
+                      those relationships can be interpreted based on
+                      pre-determined composition.
+                      {/* <Button variant="primary" onClick={handleShow}>
+                        Launch demo modal
+                      </Button> */}
+                    </p>
+                  </div>
                 </div>
+              </Parallax>
+              <Parallax
+                disabled={scrollY > limitFirst ? true : false}
+                y={["300px", "-300px"]}
+              >
                 <div>
-                  <h2>Protocol</h2>
-                  <h6>
-                    Interoperability and seamless flow of data between different
-                    networks
-                  </h6>
-                  <p>
-                    Protocol will provide interoperability and seamless flow of
-                    data between different networks. Using Ricardian and smart
-                    contracts such encrypted IDs of smart meters and consumption
-                    data will engage with prosumer Self-Sovereign Identity (SSI)
-                    in validated interactions, events and transactions including
-                    PPEs. Smart contracts govern what types of relationships can
-                    be established between different identified entities within
-                    the system and how those relationships can be interpreted
-                    based on pre-determined composition.
-                  </p>
+                  <div>
+                    <img src={"/ico/product/passport.png"}></img>
+                  </div>
+                  <div>
+                    <h2>Product passport </h2>
+                    <h6>
+                      Interoperability and seamless flow of data between
+                      different networks
+                    </h6>
+                    <p>
+                      A product passport is a digital twin of a device in
+                      blockchain space. It allows the device to be identified
+                      and labeled, to enter into agreements and to be accounted
+                      for tracking and measurement. We have created framework
+                      for standardized product passports generation and protocol
+                      for recording of such data to DLT;
+                    </p>
+                  </div>
                 </div>
-              </div>
-              <div>
+              </Parallax>
+              <Parallax
+                disabled={scrollY > limitFirst ? true : false}
+                y={["600px", "-600px"]}
+              >
                 <div>
-                  <img src={"/ico/product/passport.png"}></img>
+                  <div>
+                    <img src={"/ico/product/der.png"}></img>
+                  </div>
+                  <div>
+                    <h2> Distributed energy resource (DER) registry </h2>
+                    <h6>
+                      Interoperability and seamless flow of data between
+                      different networks
+                    </h6>
+                    <p>
+                      Data is an asset that directly translates to value, and
+                      this value can be multiplied by fusing data shared among
+                      stakeholders in a value chain. DER registry will integrate
+                      distributed energy resources across all electricity
+                      networks while increasing visibility and access to data.
+                      This will enable real time validation, time tampering and
+                      aggregation of stored data while expending capacity of a
+                      two-way energy system.
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h2>Product passport </h2>
-                  <h6>
-                    Interoperability and seamless flow of data between different
-                    networks
-                  </h6>
-                  <p>
-                    A product passport is a digital twin of a device in
-                    blockchain space. It allows the device to be identified and
-                    labeled, to enter into agreements and to be accounted for
-                    tracking and measurement. We have created framework for
-                    standardized product passports generation and protocol for
-                    recording of such data to DLT;
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  <img src={"/ico/product/der.png"}></img>
-                </div>
-                <div>
-                  <h2> Distributed energy resource (DER) registry </h2>
-                  <h6>
-                    Interoperability and seamless flow of data between different
-                    networks
-                  </h6>
-                  <p>
-                    Data is an asset that directly translates to value, and this
-                    value can be multiplied by fusing data shared among
-                    stakeholders in a value chain. DER registry will integrate
-                    distributed energy resources across all electricity networks
-                    while increasing visibility and access to data. This will
-                    enable real time validation, time tampering and aggregation
-                    of stored data while expending capacity of a two-way energy
-                    system.
-                  </p>
-                </div>
-              </div>
+              </Parallax>
             </div>
           </div>
         </section>
@@ -280,8 +402,6 @@ export default () => {
           </div>
         </section>
 
-        
-
         <section>
           <div
             css={css`
@@ -298,7 +418,7 @@ export default () => {
           </div>
         </section>
 
-        <section
+        <section ref={ref}
           css={css`
             background: #020202;
             display: flex;
@@ -332,14 +452,15 @@ export default () => {
             <div>
               <h2>Technology stack</h2>
               <div>
-                <h6>Hybrid blockchain network </h6>
-                <ul>
-                  <li>Private permissioned blockchain </li>
-                  <li>
-                    Public chain that could be deployed on other chain or chains
+              <h6>Hybrid blockchain network </h6>
+                <Trail open={inView ? true : false}>
+                  
+                  <span>> Private permissioned blockchain</span>
+                  <span>
+                    >Public chain that could be deployed on other chain or chains
                     simultaneously providing interoperability
-                  </li>
-                </ul>
+                  </span>
+                </Trail>
               </div>
               <div>
                 <h6>Gateway Protocol</h6>
@@ -395,7 +516,7 @@ export default () => {
             background-repeat: no-repeat;
             padding: 80px 0px;
             position: relative;
-            display: flex;
+            display: none;
             justify-content: center;
             ::after {
               content: "";
