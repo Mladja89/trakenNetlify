@@ -61,7 +61,8 @@ export default () => {
       <Layout>
         <section
           css={css`
-            height: calc(100vh - 20px);
+            height: calc(100vh - 80px);
+            overflow: hidden;
             video {
               position: absolute;
               right: 0;
@@ -177,6 +178,10 @@ export default () => {
             }
             .info-wrapper {
               max-width: 1400px;
+              
+              @media (max-width: 992px) {
+                padding: 0px 20px;
+                }
               .products-wrap {
                 display: flex;
                 flex-wrap: wrap;
@@ -690,6 +695,7 @@ export default () => {
                 flex-direction: row;
                 @media (max-width: 992px) {
                   flex-direction: column;
+                  padding: 0px 20px;
                 }
                 div {
                   max-width: 400px;
@@ -699,6 +705,7 @@ export default () => {
                   align-items: center;
                   img {
                     margin-bottom: 25px;
+                    width: 100%
                   }
                   h2 {
                     color: #32b1ca;
