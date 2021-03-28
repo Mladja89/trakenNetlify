@@ -44,7 +44,7 @@ export default class Header extends React.Component {
       >
         <header
           css={css`
-            /* background: white; */
+            background: white;
             z-index: 999;
             height: 80px;
             display: flex;

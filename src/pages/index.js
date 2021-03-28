@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { css } from "@emotion/core";
 import { Parallax } from "react-scroll-parallax";
-import { throttle } from "lodash";
+// import { throttle } from "lodash";
 import { useTrail, a } from "react-spring";
 import { InView, useInView } from "react-intersection-observer";
 
@@ -36,7 +36,7 @@ function Trail({ open, children, heightVar = 30, ...props }) {
 }
 
 export default () => {
-  const rootMarginValues = "2000px 0px -200px 0px";
+  const rootMarginValues = "4000px 0px -200px 0px";
   const [mobile, setMobile] = useState(false);
   const { ref, inView, entry } = useInView({
     threshold: 1,
@@ -61,7 +61,10 @@ export default () => {
       <Layout>
         <section
           css={css`
-            height: 100vh;
+            min-height: 100vh;
+            height: 100%;
+            ${mobile ? 'overflow: hidden !important;' : null}
+            ${mobile ? 'background: transparent; margin-bottom: -120px !important;' : null}
             /* overflow: hidden;
             margin-bottom: -40px; */
             video {
@@ -71,6 +74,7 @@ export default () => {
               min-width: 100%;
               min-height: 100%;
               z-index: -1;
+              
             }
             ::after {
               content: "";
@@ -100,6 +104,7 @@ export default () => {
               /* background-repeat: no-repeat;
               background-position: 50% 50%;
               background-size: cover; */
+              
               position: absolute;
               width: 100%;
               height: 100%;
@@ -121,7 +126,7 @@ export default () => {
                 content: "";
                 position: absolute;
                 width: 100%;
-                height: 100%;
+                height: calc(100% - 80px);
                 background: url("/dot.png");
                 top: 80px;
                 pointer-events: none;
@@ -158,7 +163,7 @@ export default () => {
               </Parallax>
             </div>
           </div>
-          <video muted loop autoPlay id="myVideo">
+          <video muted loop autoPlay playsInline id="myVideo">
             <source src="/production ID_5194141.mp4" type="video/mp4"></source>
           </video>
           {/* <Image fluid={hero.node.childImageSharp.fluid}></Image> */}

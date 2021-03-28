@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
               margin-top: 0;
             }
             
-.headroom {transition: all .2s ease-in-out; }
+/* .headroom {transition: all .2s ease-in-out; } */
 /* header.headroom--unpinned {transition: all .2s ease-in-out;}
 header.headroom--unfixed {transition: all .2s ease-in-out;}
 header.headroom--pinned {transition: all .2s ease-in-out;} */
