@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
           body {
             margin: 0;
             color: #555;
-
+            
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-size: 18px;
@@ -43,7 +43,9 @@ const Layout = ({ children }) => {
               margin-top: 0;
             }
           }
-
+          main {
+            overflow: hidden;
+          }
           h1,
           h2,
           h3,

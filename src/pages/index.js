@@ -180,6 +180,9 @@ export default () => {
               .products-wrap {
                 display: flex;
                 flex-wrap: wrap;
+                @media (max-width: 992px) {
+                  flex-direction: column;
+                }
                 > div {
                   display: flex;
                   flex-basis: 30%;
@@ -381,6 +384,7 @@ export default () => {
               justify-content: center;
               align-items: center;
               padding: 80px 0px;
+
               img {
                 width: 100%;
                 max-width: 900px;
@@ -400,6 +404,9 @@ export default () => {
               display: flex;
               flex-direction: row;
               padding: 80px 0px;
+              @media (max-width: 992px) {
+                  flex-direction: column;
+                }
               .tech-right {
                 display: flex;
                 flex-direction: column;
@@ -532,6 +539,11 @@ export default () => {
             background: #020202;
             display: flex;
             justify-content: center;
+            .electric-wrap {
+              @media (max-width: 992px) {
+                flex-direction: column-reverse;
+                }
+            }
             > div {
               display: flex;
               flex-direction: row;
@@ -562,7 +574,7 @@ export default () => {
             }
           `}
         >
-          <div>
+          <div class={"electric-wrap"}>
             <div>
               <h6>Electric metering becomes immutable and transparent</h6>
               <InView rootMargin={rootMarginValues}>
@@ -612,6 +624,9 @@ export default () => {
               display: flex;
               flex-direction: row;
               padding: 80px 0px;
+              @media (max-width: 992px) {
+                flex-direction: column-reverse;
+                }
               > div:nth-of-type(1) {
                 display: flex;
                 align-items: center;
