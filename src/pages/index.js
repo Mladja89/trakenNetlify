@@ -39,6 +39,11 @@ export default () => {
   const limitFirst = 1059;
   const rootMarginValues = "2000px 0px -200px 0px";
   const [scrollY, setScrollY] = useState(0);
+  const [mobile, setMobile] = useState(false)
+  if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    // true for mobile device
+    setMobile(true);
+  }
 
   const logit = () => {
     setScrollY(window.pageYOffset);
@@ -139,7 +144,7 @@ export default () => {
                     font-weight: 200;
                   `}
                 >
-                  Smart grid
+                  Smart grid { mobile ? (<div>MOBILE</div>) : null}
                 </span>
                 <span
                   css={css`
