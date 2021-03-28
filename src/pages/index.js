@@ -4,15 +4,15 @@ import { css } from "@emotion/core";
 import { Parallax } from "react-scroll-parallax";
 import { throttle } from "lodash";
 import { useTrail, a } from "react-spring";
-import { InView } from "react-intersection-observer";
+import { InView, useInView } from "react-intersection-observer";
 
-function Trail({ open, children, ...props }) {
+function Trail({ open, children, heightVar = 30, ...props }) {
   const items = React.Children.toArray(children);
   const trail = useTrail(items.length, {
     config: { mass: 5, tension: 2000, friction: 200 },
     opacity: open ? 1 : 0,
     x: open ? 0 : 20,
-    height: open ? 30 : 0,
+    height: open ? heightVar : 0,
     from: { opacity: 0, x: 20, height: 0 },
   });
   return (
@@ -36,29 +36,24 @@ function Trail({ open, children, ...props }) {
 }
 
 export default () => {
-  const limitFirst = 1059;
   const rootMarginValues = "2000px 0px -200px 0px";
-  const [scrollY, setScrollY] = useState(0);
-  const [mobile, setMobile] = useState(false)
-
-  
-
+  const [mobile, setMobile] = useState(false);
+  const { ref, inView, entry } = useInView({
+    threshold: 1,
+    rootMargin: "2000px 0px -180px 0px",
+  });
 
   useEffect(() => {
-    if (typeof window !== 'undefined'){
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
+    if (typeof window !== "undefined") {
+      if (
+        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        )
+      ) {
         // true for mobile device
         setMobile(true);
-      }}
-
-      const logit = () => {
-        setScrollY(window.pageYOffset);
-      };
-    const throttledLogit = throttle(logit, 100);
-    window.addEventListener("scroll", throttledLogit);
-    return () => {
-      window.removeEventListener("scroll", throttledLogit);
-    };
+      }
+    }
   }, []);
 
   return (
@@ -148,7 +143,7 @@ export default () => {
                     font-weight: 200;
                   `}
                 >
-                  Smart grid { mobile ? (<div>MOBILE</div>) : null}
+                  Smart grid
                 </span>
                 <span
                   css={css`
@@ -242,11 +237,8 @@ export default () => {
               </h6>
             </Parallax>
 
-            <div className={"products-wrap"}>
-              <Parallax
-                disabled={scrollY > limitFirst ? true : false}
-                y={["150px", "-150px"]}
-              >
+            <div className={"products-wrap"} ref={ref}>
+              <Parallax disabled={inView || mobile} y={["150px", "-150px"]}>
                 <div>
                   <div>
                     <img src={"/ico/product/protocol.png"}></img>
@@ -272,10 +264,7 @@ export default () => {
                   </div>
                 </div>
               </Parallax>
-              <Parallax
-                disabled={scrollY > limitFirst ? true : false}
-                y={["300px", "-300px"]}
-              >
+              <Parallax disabled={inView || mobile} y={["300px", "-300px"]}>
                 <div>
                   <div>
                     <img src={"/ico/product/passport.png"}></img>
@@ -297,10 +286,7 @@ export default () => {
                   </div>
                 </div>
               </Parallax>
-              <Parallax
-                disabled={scrollY > limitFirst ? true : false}
-                y={["600px", "-600px"]}
-              >
+              <Parallax disabled={inView || mobile} y={["600px", "-600px"]}>
                 <div>
                   <div>
                     <img src={"/ico/product/der.png"}></img>
@@ -397,6 +383,7 @@ export default () => {
               padding: 80px 0px;
               img {
                 width: 100%;
+                max-width: 900px;
               }
             `}
           >
@@ -413,7 +400,7 @@ export default () => {
               display: flex;
               flex-direction: row;
               padding: 80px 0px;
-              .tech-right{
+              .tech-right {
                 display: flex;
                 flex-direction: column;
                 align-items: baseline;
@@ -454,8 +441,8 @@ export default () => {
                       <Trail open={inView}>
                         <span>> Private permissioned blockchain</span>
                         <span>
-                          > Public chain that could be deployed on other chain or
-                          chains simultaneously providing interoperability
+                          > Public chain that could be deployed on other chain
+                          or chains simultaneously providing interoperability
                         </span>
                       </Trail>
                     </div>
@@ -485,8 +472,10 @@ export default () => {
                   {({ inView, ref, entry }) => (
                     <div ref={ref}>
                       <Trail open={inView}>
-                        <span>>  Executes on its own based on the instructions provided in
-                    the computer code</span>
+                        <span>
+                          > Executes on its own based on the instructions
+                          provided in the computer code
+                        </span>
                         <span>
                           > Immutable, self-verifying and auto-enforcing
                         </span>
@@ -502,14 +491,12 @@ export default () => {
                   {({ inView, ref, entry }) => (
                     <div ref={ref}>
                       <Trail open={inView}>
-                        <span>> Available in printable form, program parsable with all forms
-                    equivalent in terms of manifest</span>
                         <span>
-                          > Readable by humans and machines
+                          > Available in printable form, program parsable with
+                          all forms equivalent in terms of manifest
                         </span>
-                        <span>
-                          > Signed by the issuer and both parties
-                        </span>
+                        <span>> Readable by humans and machines</span>
+                        <span>> Signed by the issuer and both parties</span>
                       </Trail>
                     </div>
                   )}
@@ -518,105 +505,23 @@ export default () => {
 
               <div>
                 <h6>Data Pipeline</h6>
-                <ul>
-                  <li>
-                    How it communicates with end points that insert data into
-                    the system such as Skada from various manufacturers
-                  </li>
-                  <li>
-                    How metadata is stored so that it can be replicated on other
-                    systems
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
-          css={css`
-            background: url("/stock1.png");
-            background-size: cover;
-            background-repeat: no-repeat;
-            padding: 80px 0px;
-            position: relative;
-            display: none;
-            justify-content: center;
-            ::after {
-              content: "";
-              position: absolute;
-              width: 100%;
-              height: calc(100% - 80px);
-              background: url(/dot.png);
-              top: 0px;
-              pointer-events: none;
-            }
-            div {
-              z-index: 0;
-              max-width: 1200px;
-            }
-            > div {
-              display: flex;
-              flex-direction: column;
-              text-align: center;
-              div::nth-of-type(1) {
-                display: flex;
-                align-items: center;
-              }
-              h2 {
-                color: #32b1ca;
-                font-weight: 200;
-                font-size: 50px;
-                /* color: white; */
-                span {
-                  font-weight: 400;
-                }
-              }
-              div {
-                color: white;
-                margin-bottom: 30px;
-                font-size: 20px;
-                font-weight: 400;
-              }
-              div > h6 {
-                color: #32b1ca;
-                text-transform: uppercase;
-                /* color: white; */
-                font-size: 25px;
-                font-weight: 600;
-              }
-            }
-          `}
-        >
-          <div>
-            <h2>
-              Why <span>Blockchain</span>
-            </h2>
-            <img></img>
-            <div>
-              <div>
-                <h6>Trust</h6>
-                Multiple points of verification within the Blockchain heighten
-                trust between the participants.
-              </div>
-              <div>
-                <h6>Trace</h6>
-                Blockchain records are permanent and cannot be edited or
-                deleted.
-              </div>
-              <div>
-                <h6>Transparent</h6>
-                Ownership or control of assets is public and transparent.
-              </div>
-              <div>
-                <h6>Tengible</h6>
-                Blockchain logic prevents double-counting of assets, records
-                ownership and transfers.
-              </div>
-              <div>
-                <h6>Transactions</h6>
-                Greater the number of parties in the ecosystem and the higher
-                the transaction volumes, the more secure Blockchain can make it.
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView}>
+                        <span>
+                          > How it communicates with end points that insert data
+                          into the system such as Skada from various
+                          manufacturers
+                        </span>
+                        <span>
+                          > How metadata is stored so that it can be replicated
+                          on other systems
+                        </span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
               </div>
             </div>
           </div>
@@ -659,6 +564,25 @@ export default () => {
         >
           <div>
             <div>
+              <h6>Electric metering becomes immutable and transparent</h6>
+              <InView rootMargin={rootMarginValues}>
+                {({ inView, ref, entry }) => (
+                  <div ref={ref}>
+                    <Trail open={inView} heightVar={45}>
+                      <span> Operational performances tracking {`<`}</span>
+                      <span> Custom reporting intervals {`<`}</span>
+                      <span> Real time service management {`<`}</span>
+                      <span> Mobispanty of consumer accounts {`<`}</span>
+                      <span> Consumption patterns tracking {`<`}</span>
+                      <span> Supply chain transparency {`<`}</span>
+                      <span> New business models {`<`}</span>
+                    </Trail>
+                  </div>
+                )}
+              </InView>
+            </div>
+
+            {/* <div>
               <h2>Electric metering becomes immutable and transparent</h2>
               <div>
                 <h6>OPERATOR BENEFITS ARE NUMEROUS</h6>
@@ -672,7 +596,7 @@ export default () => {
                   <li>New business models</li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             <div>
               <img src={"/ico/slideicons/slide9.png"}></img>
             </div>
@@ -770,6 +694,7 @@ export default () => {
               > img {
                 margin-top: 150px;
                 max-width: 450px;
+                width: 100%;
               }
             `}
           >
@@ -795,7 +720,7 @@ export default () => {
               </div>
               <div>
                 <img src={"/ico/slideicons/team3.png"}></img>
-                <h2>Miloš Solujić</h2>
+                <h2>Pavle Batuta</h2>
                 <p>
                   Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
