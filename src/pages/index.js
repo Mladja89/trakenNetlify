@@ -61,8 +61,9 @@ export default () => {
       <Layout>
         <section
           css={css`
-            height: calc(100vh - 80px);
-            overflow: hidden;
+            height: 100vh;
+            /* overflow: hidden;
+            margin-bottom: -40px; */
             video {
               position: absolute;
               right: 0;
@@ -120,9 +121,9 @@ export default () => {
                 content: "";
                 position: absolute;
                 width: 100%;
-                height: calc(100% - 80px);
-                background: url(/dot.png);
-                top: 60px;
+                height: 100%;
+                background: url("/dot.png");
+                top: 80px;
                 pointer-events: none;
               }
             `}

@@ -42,9 +42,14 @@ const Layout = ({ children }) => {
             > div {
               margin-top: 0;
             }
+            
+.headroom {transition: all .2s ease-in-out; }
+/* header.headroom--unpinned {transition: all .2s ease-in-out;}
+header.headroom--unfixed {transition: all .2s ease-in-out;}
+header.headroom--pinned {transition: all .2s ease-in-out;} */
           }
           main {
-            overflow: hidden;
+            /* overflow: hidden; */
           }
           h1,
           h2,
@@ -115,8 +120,9 @@ const Layout = ({ children }) => {
       />
       <main
         css={css`
-          padding-top: 0px;
-          margin-top: -60px;
+          /* padding-top: 0px;
+          margin-top: -60px; */
+          margin-top: -80px;
         `}
       >
         <ParallaxProvider>{children}</ParallaxProvider>
