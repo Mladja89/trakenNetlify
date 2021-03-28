@@ -40,7 +40,7 @@ export default () => {
   const rootMarginValues = "2000px 0px -200px 0px";
   const [scrollY, setScrollY] = useState(0);
   const [mobile, setMobile] = useState(false)
-  if (window && window.navigator && window.navigator.userAgent){
+  if (typeof window !== 'undefined'){
   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){
     // true for mobile device
     setMobile(true);
