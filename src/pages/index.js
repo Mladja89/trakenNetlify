@@ -201,8 +201,61 @@ export default () => {
                   margin: 0px 20px;
                   flex-direction: column;
                   align-items: center;
-                  /* margin-bottom: 40px; */
-                  div {
+
+                  .upper {
+                    display: flex;
+                    flex-direction: row;
+                    max-height: 80px;
+                    /* height: 200px; */
+                    align-items: center;
+                    position: relative;
+                      ::after {
+                        content: "";
+                        position: absolute;
+                        width: 1px;
+                        height: 100%;
+                        background: #c3c3c3;
+                        left: 110px;
+                      }
+                    .left {
+                      max-width: 100px;
+                      display: flex;
+                      align-items: center;
+                      img {
+                        width: 100%;
+                        display: block;
+                      }
+                    }
+                    .right {
+                      padding-left: 40px;
+                      > h2 {
+                        font-size: 30px;
+                        color: #32b1ca;
+                      }
+
+                    }
+                  }
+
+                  .down {
+                    position: relative;
+                      ::after {
+                        content: "";
+                        position: absolute;
+                        width: 100%;
+                        height: 1px;
+                        background: #000000;
+                        top: -25px;
+                        /* left: 50%;
+                        transform: translate(-50%, 0); */
+                      }
+                    h6 {
+                        margin-top: 50px;
+                        text-transform: uppercase;
+                        color: #32b1ca;
+                      }
+                  }
+
+                  /* div {
                     line-height: 1.5;
                     display: flex;
                     flex-direction: column;
@@ -212,17 +265,8 @@ export default () => {
                       min-height: 112px;
                       margin-bottom: 50px;
                     }
-                    h6 {
-                      text-transform: uppercase;
 
-                      color: #32b1ca;
-                    }
-                    > h2 {
-                      font-size: 30px;
-                      color: #32b1ca;
-                      text-align: center;
-                    }
-                  }
+                  } */
                 }
               }
               div {
@@ -254,16 +298,21 @@ export default () => {
 
             <div className={"products-wrap"} ref={ref}>
               <Parallax disabled={inView || mobile} y={["150px", "-150px"]}>
-                <div>
-                  <div>
-                    <img src={"/ico/product/protocol.png"}></img>
+                <>
+                  <div className={"upper"}>
+                    <div className={"left"}>
+                      <img src={"/ico/product/protocol1.png"}></img>
+                    </div>
+                    <div className={"right"}>
+                      <h2>Protocol</h2>
+
+                    </div>
                   </div>
-                  <div>
-                    <h2>Protocol</h2>
-                    <h6>
-                      Interoperability and seamless flow of data between
-                      different networks
-                    </h6>
+                  <div className={"down"}>
+                  <h6>
+                        Interoperability and seamless flow of data between
+                        different networks
+                      </h6>
                     <p>
                       Protocol will provide interoperability and seamless flow
                       of data between different networks. Using Ricardian and
@@ -277,19 +326,24 @@ export default () => {
                       pre-determined composition.
                     </p>
                   </div>
-                </div>
+                </>
               </Parallax>
               <Parallax disabled={inView || mobile} y={["300px", "-300px"]}>
-                <div>
-                  <div>
-                    <img src={"/ico/product/passport.png"}></img>
+                <>
+                  <div className={"upper"}>
+                    <div className={"left"}>
+                      <img src={"/ico/product/passport1.png"}></img>
+                    </div>
+                    <div className={"right"}>
+                      <h2>Product passport</h2>
+
+                    </div>
                   </div>
-                  <div>
-                    <h2>Product passport </h2>
-                    <h6>
-                      Interoperability and seamless flow of data between
-                      different networks
-                    </h6>
+                  <div className={"down"}>
+                  <h6>
+                        Framework for standardized product passports generation
+                        and protocol for recording of such data to DLT
+                      </h6>
                     <p>
                       A product passport is a digital twin of a device in
                       blockchain space. It allows the device to be identified
@@ -299,19 +353,21 @@ export default () => {
                       for recording of such data to DLT;
                     </p>
                   </div>
-                </div>
+                </>
               </Parallax>
               <Parallax disabled={inView || mobile} y={["600px", "-600px"]}>
-                <div>
-                  <div>
-                    <img src={"/ico/product/der.png"}></img>
+                <>
+                  <div className={"upper"}>
+                    <div className={"left"}>
+                      <img src={"/ico/product/der1.png"}></img>
+                    </div>
+                    <div className={"right"}>
+                      <h2>Distributed energy resource (DER)</h2>
+                      
+                    </div>
                   </div>
-                  <div>
-                    <h2> Distributed energy resource (DER) registry </h2>
-                    <h6>
-                      Interoperability and seamless flow of data between
-                      different networks
-                    </h6>
+                  <div className={"down"}>
+                    <h6>validation, time tampering and storing of data</h6>
                     <p>
                       Data is an asset that directly translates to value, and
                       this value can be multiplied by fusing data shared among
@@ -323,7 +379,7 @@ export default () => {
                       two-way energy system.
                     </p>
                   </div>
-                </div>
+                </>
               </Parallax>
             </div>
           </div>
