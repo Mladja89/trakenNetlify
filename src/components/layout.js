@@ -94,8 +94,9 @@ header.headroom--pinned {transition: all .2s ease-in-out;} */
             /* height: 110px; */
             /* line-height: 110px; */
             color: white;
+            cursor: default;
             /* font-size: 8em; */
-            font-weight: 800;
+            font-weight: 400;
             letter-spacing: -9px;
             will-change: transform, opacity;
             overflow: hidden;

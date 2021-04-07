@@ -63,8 +63,10 @@ export default () => {
           css={css`
             min-height: 100vh;
             height: 100%;
-            ${mobile ? 'overflow: hidden !important;' : null}
-            ${mobile ? 'background: transparent; margin-bottom: -120px !important;' : null}
+            ${mobile ? "overflow: hidden !important;" : null}
+            ${mobile
+              ? "background: transparent; margin-bottom: -120px !important;"
+              : null}
             /* overflow: hidden;
             margin-bottom: -40px; */
             video {
@@ -74,7 +76,6 @@ export default () => {
               min-width: 100%;
               min-height: 100%;
               z-index: -1;
-              
             }
             ::after {
               content: "";
@@ -104,7 +105,7 @@ export default () => {
               /* background-repeat: no-repeat;
               background-position: 50% 50%;
               background-size: cover; */
-              
+
               position: absolute;
               width: 100%;
               height: 100%;
@@ -164,7 +165,7 @@ export default () => {
             </div>
           </div>
           <video muted loop autoPlay playsInline id="myVideo">
-            <source src="/production ID_5194141.mp4" type="video/mp4"></source>
+            <source src="/tltm8e (1).mp4" type="video/mp4"></source>
           </video>
           {/* <Image fluid={hero.node.childImageSharp.fluid}></Image> */}
         </section>
@@ -184,10 +185,10 @@ export default () => {
             }
             .info-wrapper {
               max-width: 1400px;
-              
+
               @media (max-width: 992px) {
                 padding: 0px 20px;
-                }
+              }
               .products-wrap {
                 display: flex;
                 flex-wrap: wrap;
@@ -416,8 +417,8 @@ export default () => {
               flex-direction: row;
               padding: 80px 0px;
               @media (max-width: 992px) {
-                  flex-direction: column;
-                }
+                flex-direction: column;
+              }
               .tech-right {
                 display: flex;
                 flex-direction: column;
@@ -554,6 +555,21 @@ export default () => {
               @media (max-width: 992px) {
                 flex-direction: column-reverse;
                 }
+              > div {
+                flex-direction: column;
+                display: flex;
+                align-items: flex-end;
+                .content {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-end;
+                }
+              }
+              > div:nth-of-type(2) {
+                display: flex;
+                justify-content: center;
+                padding-top: 60px;
+              }
             }
             > div {
               display: flex;
@@ -562,10 +578,7 @@ export default () => {
               max-width: 1000px;
               text-align: end;
               }
-              > div:nth-of-type(1) {
-                display: flex;
-                align-items: center;
-              }
+
               h2 {
                 color: #32b1ca;
                 text-transform: uppercase;
@@ -587,39 +600,75 @@ export default () => {
         >
           <div class={"electric-wrap"}>
             <div>
-              <h6>Electric metering becomes immutable and transparent</h6>
-              <InView rootMargin={rootMarginValues}>
-                {({ inView, ref, entry }) => (
-                  <div ref={ref}>
-                    <Trail open={inView} heightVar={45}>
-                      <span> Operational performances tracking {`<`}</span>
-                      <span> Custom reporting intervals {`<`}</span>
-                      <span> Real time service management {`<`}</span>
-                      <span> Mobispanty of consumer accounts {`<`}</span>
-                      <span> Consumption patterns tracking {`<`}</span>
-                      <span> Supply chain transparency {`<`}</span>
-                      <span> New business models {`<`}</span>
-                    </Trail>
-                  </div>
-                )}
-              </InView>
-            </div>
-
-            {/* <div>
-              <h2>Electric metering becomes immutable and transparent</h2>
               <div>
-                <h6>OPERATOR BENEFITS ARE NUMEROUS</h6>
-                <ul>
-                  <li>Operational performances tracking</li>
-                  <li>Custom reporting intervals</li>
-                  <li>Real time service management</li>
-                  <li>Mobility of consumer accounts</li>
-                  <li>Consumption patterns tracking</li>
-                  <li>Supply chain transparency</li>
-                  <li>New business models</li>
-                </ul>
+                <h2>Electric metering becomes immutable and transparent</h2>
               </div>
-            </div> */}
+              <div className={"content"}>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> Operational performances tracking {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> Custom reporting intervals {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> Real time service management {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> Mobispanty of consumer accounts {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> Consumption patterns tracking {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> Supply chain transparency {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> New business models {`<`}</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+              </div>
+            </div>
             <div>
               <img src={"/ico/slideicons/slide9.png"}></img>
             </div>
@@ -637,7 +686,7 @@ export default () => {
               padding: 80px 0px;
               @media (max-width: 992px) {
                 flex-direction: column-reverse;
-                }
+              }
               > div:nth-of-type(1) {
                 display: flex;
                 align-items: center;
@@ -711,7 +760,7 @@ export default () => {
                   align-items: center;
                   img {
                     margin-bottom: 25px;
-                    width: 100%
+                    width: 100%;
                   }
                   h2 {
                     color: #32b1ca;

@@ -31,8 +31,8 @@ export default class Header extends React.Component {
     const MEDIA_MAX_WIDTH = 576;
     const navLinks = [
       { value: "Home", link: "/" },
-      { value: "Projects", link: "/projects/" },
-      { value: "News", link: "/news/" },
+      { value: "Product", link: "/product/" },
+      { value: "Team", link: "/team/" },
       { value: "Contact", link: "/contact/" },
     ];
     return (
