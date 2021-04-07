@@ -44,7 +44,8 @@ export default class Header extends React.Component {
       >
         <header
           css={css`
-            background: white;
+            background: #00000087;
+            border-bottom: 1px solid #2b97ac;
             z-index: 999;
             height: 80px;
             display: flex;
@@ -70,7 +71,7 @@ export default class Header extends React.Component {
               color: ${typeof window !== "undefined" &&
               window.location.pathname !== "/"
                 ? "white"
-                : "#383d4d"};
+                : "white"};
               :hover {
                 color: #32b1ca;
                 text-decoration: none;
@@ -85,7 +86,7 @@ export default class Header extends React.Component {
               ? "casus-logo-white.svg"
               : "casus-logo.svg"}`}></img> */}
 
-            <img src={`/ico/logo/traken-logo.png`}></img>
+            <img src={`/ico/logo/traken-logo2.png`}></img>
           </NavLink>
           <div className={"nav-link-group"}>
             {navLinks.map((link) => (

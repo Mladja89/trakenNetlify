@@ -230,7 +230,7 @@ export default () => {
                       padding-left: 40px;
                       > h2 {
                         font-size: 30px;
-                        color: #32b1ca;
+                        color: #40b7ce;
                       }
 
                     }
@@ -251,7 +251,7 @@ export default () => {
                     h6 {
                         margin-top: 50px;
                         text-transform: uppercase;
-                        color: #32b1ca;
+                        color: #40b7ce;
                       }
                   }
 
@@ -488,12 +488,12 @@ export default () => {
                 align-items: center;
               }
               h2 {
-                color: #32b1ca;
+                color: #40b7ce;
                 text-transform: uppercase;
                 font-weight: 600;
               }
               div > h6 {
-                color: #32b1ca;
+                color: #40b7ce;
               }
               div > ul > li {
                 color: #c3c3c3;
@@ -636,13 +636,13 @@ export default () => {
               }
 
               h2 {
-                color: #32b1ca;
+                color: #40b7ce;
                 text-transform: uppercase;
                 font-weight: 600;
                 margin-bottom: 40px;
               }
               div > h6 {
-                color: #32b1ca;
+                color: #40b7ce;
               }
               div > ul {
                 padding-right: 20px;
@@ -748,12 +748,12 @@ export default () => {
                 align-items: center;
               }
               h2 {
-                color: #32b1ca;
+                color: #40b7ce;
                 text-transform: uppercase;
                 font-weight: 600;
               }
               div > h6 {
-                color: #32b1ca;
+                color: #40b7ce;
               }
               div > ul > li {
                 color: #c3c3c3;
@@ -796,7 +796,7 @@ export default () => {
               padding: 80px 0px;
 
               .team-title {
-                color: #32b1ca;
+                color: #40b7ce;
                 font-size: 60px;
                 font-weight: 200;
                 margin-bottom: 70px;
@@ -819,7 +819,7 @@ export default () => {
                     width: 100%;
                   }
                   h2 {
-                    color: #32b1ca;
+                    color: #40b7ce;
                     font-size: 30px;
                   }
                 }
