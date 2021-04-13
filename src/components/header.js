@@ -44,13 +44,22 @@ export default class Header extends React.Component {
       >
         <header
           css={css`
-            background: #00000087;
-            border-bottom: 1px solid #2b97ac;
+            background: ${typeof window !== "undefined" &&
+              window.location.pathname !== "/team/"
+                ? "#00000087"
+                : "black"};
+            border-bottom: 1px solid #40b7ce;
             z-index: 999;
             height: 80px;
             display: flex;
             align-items: center;
             padding: 0px 20px;
+            ${
+              typeof window !== "undefined" &&
+              window.location.pathname !== "/product/"
+                ? null
+                : "max-width: 1400px; margin-left: auto; margin-right: auto; background: #111111;"}
+            }
             .logo-traken {
               margin-right: 30px;
               font-size: 22px;

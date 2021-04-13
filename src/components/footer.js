@@ -18,6 +18,7 @@ export default class Footer extends React.Component {
         css={css`
           background: url("/footer-bg.svg");
           overflow: hidden;
+          border-top: 1px solid #40b7ce;
           .foot-wrap {
             display: flex;
             align-items: center;

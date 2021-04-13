@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
+import { Link } from "gatsby";
 import { css } from "@emotion/core";
 import { Parallax } from "react-scroll-parallax";
 // import { throttle } from "lodash";
@@ -179,13 +180,35 @@ export default () => {
             align-items: center;
             padding-bottom: 60px;
             padding-top: 80px;
+            position: relative;
+            /* ::before {
+              content: "";
+              position: absolute;
+              background: url("/hero-media-illustration-dark-2.png");
+              width: 400px;
+              height: 400px;
+              left: 0px;
+              opacity: 0.1;
+            }
+            ::after {
+              content: "";
+              position: absolute;
+              background: url("/hero-media-illustration-dark-2.png");
+              width: 400px;
+              height: 400px;
+              right: 0px;
+              opacity: 0.1;
+              bottom: 0;
+            } */
             h6,
             div {
               color: #c3c3c3;
             }
             .info-wrapper {
               max-width: 1400px;
-
+              display: flex;
+              flex-direction: column;
+              align-items: center;
               @media (max-width: 992px) {
                 padding: 0px 20px;
               }
@@ -219,6 +242,7 @@ export default () => {
                       }
                     .left {
                       max-width: 100px;
+                      min-width: 100px;
                       display: flex;
                       align-items: center;
                       img {
@@ -279,6 +303,22 @@ export default () => {
                   color: #fff;
                   > span {
                     font-weight: 800;
+                  }
+                }
+              }
+              .link-product {
+                display: flex;
+                margin-top: 40px;
+                a {
+                  border: 1px solid #40b7ce;
+                  border-radius: 50px;
+                  padding: 20px 80px;
+                  font-size: 25px;
+                  text-decoration: none;
+                  color: #40b7ce;
+                  :hover {
+                    background: #40b7ce;
+                    color: black;
                   }
                 }
               }
@@ -382,6 +422,9 @@ export default () => {
                 </>
               </Parallax>
             </div>
+            <div className={"link-product"}>
+              <Link to="/product/">Find out more</Link>
+            </div>
           </div>
         </section>
 
@@ -429,6 +472,7 @@ export default () => {
         >
           <div
             css={css`
+              margin-top: 100px;
               > img {
                 width: 100%;
               }
@@ -731,7 +775,140 @@ export default () => {
           </div>
         </section>
 
+
+
+
+
         <section
+          css={css`
+            background: #020202;
+            display: flex;
+            justify-content: center;
+            .electric-wrap {
+              @media (max-width: 992px) {
+                flex-direction: column-reverse;
+                }
+              > div {
+                flex-direction: column;
+                display: flex;
+                align-items: flex-start;
+                .content {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                }
+              }
+              > div:nth-of-type(1) {
+                display: flex;
+                justify-content: center;
+                padding-top: 60px;
+              }
+            }
+            > div {
+              display: flex;
+              flex-direction: row;
+              padding: 80px 0px;
+              max-width: 1000px;
+              /* text-align: end; */
+              }
+
+              h2 {
+                color: #40b7ce;
+                text-transform: uppercase;
+                font-weight: 600;
+                margin-bottom: 40px;
+              }
+              div > h6 {
+                color: #40b7ce;
+              }
+              div > ul {
+                padding-right: 20px;
+              }
+              div > ul > li {
+                color: #c3c3c3;
+                direction: rtl;
+              }
+            }
+          `}
+        >
+          <div class={"electric-wrap"}>
+            <div>
+              <img src={"/ico/slideicons/slide10.png"}></img>
+            </div>
+            <div>
+              <div>
+                <h2>Electric energy becomes a liquid asset</h2>
+              </div>
+              <div className={"content"}>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > Peer-to-Peer trading</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > Real time trading or production permits</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > Transparency and provenance</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > Origin tracking</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > New financing models</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > Democratizing investment</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+                <InView rootMargin={rootMarginValues}>
+                  {({ inView, ref, entry }) => (
+                    <div ref={ref}>
+                      <Trail open={inView} heightVar={50}>
+                        <span> > Realization of non-financial value</span>
+                      </Trail>
+                    </div>
+                  )}
+                </InView>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* <section
           css={css`
             background: #020202;
             display: flex;
@@ -766,22 +943,22 @@ export default () => {
               <img src={"/ico/slideicons/slide10.png"}></img>
             </div>
             <div>
-              <h2>Electric energy becomes a liquid asset</h2>
+              <h2></h2>
               <div>
                 <h6> CONSUMER BENEFITS ARE AMAZING</h6>
                 <ul>
-                  <li>Peer-to-Peer trading</li>
-                  <li>Real time trading or production permits</li>
-                  <li>Transparency and provenance</li>
-                  <li>Origin tracking</li>
-                  <li>New financing models</li>
-                  <li>Democratizing investment</li>
-                  <li>Realization of non-financial value</li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
                 </ul>
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section>
           <div
@@ -809,7 +986,7 @@ export default () => {
                   padding: 0px 20px;
                 }
                 div {
-                  max-width: 400px;
+                  max-width: 600px;
                   margin: 0px 25px;
                   display: flex;
                   flex-direction: column;
@@ -824,6 +1001,22 @@ export default () => {
                   }
                 }
               }
+              .link-team {
+                display: flex;
+                margin-top: 40px;
+                a {
+                  border: 1px solid #40b7ce;
+                  border-radius: 50px;
+                  padding: 20px 80px;
+                  font-size: 25px;
+                  text-decoration: none;
+                  color: #40b7ce;
+                  :hover {
+                    background: #40b7ce;
+                    color: white;
+                  }
+                }
+              }
               > img {
                 margin-top: 150px;
                 max-width: 450px;
@@ -834,32 +1027,11 @@ export default () => {
             <div className={"team-title"}>Project Team</div>
             <div className={"team"}>
               <div>
-                <img src={"/ico/slideicons/team1.png"}></img>
-                <h2>Strahinja Vukoičić</h2>
-                <p>
-                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  ut enim ad minim veniam,
-                </p>
+                <img src={"/ico/slideicons/team-full.png"}></img>
               </div>
-              <div>
-                <img src={"/ico/slideicons/team2.png"}></img>
-                <h2>Nemanja Petrović</h2>
-                <p>
-                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  ut enim ad minim veniam,
-                </p>
-              </div>
-              <div>
-                <img src={"/ico/slideicons/team3.png"}></img>
-                <h2>Pavle Batuta</h2>
-                <p>
-                  Lorem ipsum dolor sit amet conse ctetur adipisicing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  ut enim ad minim veniam,
-                </p>
-              </div>
+            </div>
+            <div className={"link-team"}>
+              <Link to="/team/">Meet our Team</Link>
             </div>
             <img
               src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}

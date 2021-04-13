@@ -23,6 +23,10 @@ const Layout = ({ children }) => {
               Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
               "Segoe UI Emoji", "Segoe UI Symbol";
             letter-spacing: 0.2px;
+            ::selection {
+                    background: #40b7ce;
+                    color: black;
+                  }
           }
 
           ${"" /* * + * {
