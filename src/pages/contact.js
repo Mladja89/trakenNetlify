@@ -1,8 +1,5 @@
 import React from "react";
 import Layout from "../components/layout";
-import CasusSection from "../components/casus-section";
-import HeroCard from "../components/hero-card";
-import Bluedot from "../components/blue-dot";
 import { css } from "@emotion/core";
 
 const Contact = () => {
@@ -10,45 +7,68 @@ const Contact = () => {
   return (
     <>
       <Layout>
-      {/* <CasusSection flexDr={"column"}>
-          <div
+      <section>
+      <div
             css={css`
+              background: url("/black-bg.svg");
+              background-position: 50%;
+              background-size: cover;
               display: flex;
               flex-direction: column;
-              width: 100%;
+              justify-content: center;
               align-items: center;
-              .bluedot-wrapper {
-                background: #383d4d;
-                padding: 50px 0px;
+              padding: 160px 0px;
+              min-height: calc(100vh - 181px);
+              .title {
+                color: #40b7ce;
+                font-size: 60px;
+                font-weight: 200;
+                margin-bottom: 70px;
+              }
+              .contact {
+                > div {
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+                  span {
+                    color: white;
+                    font-size: 30px;
+                  }
+                  a {
+                    width: 60px;
+                    height: 100px;
+                    background: url("/ico/social/w-mail.svg");
+                    background-repeat: no-repeat;
+                    background-position: 50%;
+                    :hover {
+                    background: url("/ico/social/mail.svg");
+                    background-repeat: no-repeat;
+                    background-position: 50%;
+                    }
+                  }
+                }
+              }
+              > img {
+                margin-top: 150px;
+                max-width: 250px;
                 width: 100%;
+                height: 100%;
+                display: block;
               }
             `}
           >
-            <div className={"bluedot-wrapper"}>
-              <Bluedot>
-                <span>Kontakt title</span>
-              </Bluedot>
-            </div>
-            <HeroCard
-              title={["Lorem ipsum subtitle will", "be placed here"]}
-              image={"/testimg.png"}
-            >
+            <div className={"title"}>Contact us</div>
+            <div className={"contact"}>
               <div>
-                <p>
-                  This is a placeholder text digitalized access to legal
-                  services that have the flexibility to develop along with your
-                  company size. We want to put you in control with an online
-                  product brought to your office by our experienced lawers and
-                  computer scientist.
-                </p>
-                <p>
-                  Through the expertise of our fully qualified and specialized
-                  lawers, and highly experienced computer scientist.
-                </p>
+                <span>office@traken.tech</span>
+                <a href="mailto:office@traken.tech"></a>
               </div>
-            </HeroCard>
+            </div>
+            <img
+              src={"/ico/logo/traken-logo-white.png"}
+            ></img>
           </div>
-        </CasusSection> */}
+        </section>
       </Layout>
     </>
   );

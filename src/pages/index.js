@@ -3,7 +3,6 @@ import Layout from "../components/layout";
 import { Link } from "gatsby";
 import { css } from "@emotion/core";
 import { Parallax } from "react-scroll-parallax";
-// import { throttle } from "lodash";
 import { useTrail, a } from "react-spring";
 import { InView, useInView } from "react-intersection-observer";
 
@@ -64,6 +63,7 @@ export default () => {
           css={css`
             min-height: 100vh;
             height: 100%;
+            /* margin-top: 80px; */
             ${mobile ? "overflow: hidden !important;" : null}
             ${mobile
               ? "background: transparent; margin-bottom: -120px !important;"
@@ -232,6 +232,10 @@ export default () => {
                     /* height: 200px; */
                     align-items: center;
                     position: relative;
+                    @media (max-width: 992px) {
+                    
+                    margin: 50px 0px;
+                    }
                       ::after {
                         content: "";
                         position: absolute;
@@ -310,17 +314,28 @@ export default () => {
                 display: flex;
                 margin-top: 40px;
                 a {
-                  border: 1px solid #40b7ce;
-                  border-radius: 50px;
-                  padding: 20px 80px;
-                  font-size: 25px;
-                  text-decoration: none;
-                  color: #40b7ce;
+                  display: inline-flex;
+                      /* font-size: 14px; */
+                      letter-spacing: 0px;
+                      font-weight: 600;
+                      line-height: 16px;
+                      text-decoration: none !important;
+                      text-transform: uppercase;
+                      background-color: #369caf;
+                      /* background: #40b9ce; */
+                      border: none;
+                      border-radius: 2px;
+                      cursor: pointer;
+                      justify-content: center;
+                      padding: 16px 32px;
+                      height: 48px;
+                      text-align: center;
+                      white-space: nowrap;
+                      color: black;
                   :hover {
-                    background: #40b7ce;
+                    background: #40b9ce;
                     color: black;
                   }
-                }
               }
             }
           `}
@@ -482,7 +497,69 @@ export default () => {
               <h2>Challenges</h2>
               <h2>of electrical ecosystem</h2>
             </div>
-            <img src={"/ico/slideicons/MREZA.png"}></img>
+            {mobile ? (
+              <div css={css`
+                padding: 0px 20px;
+                > div {
+                  margin: 35px 0px;
+                  .c-left {
+
+                  }
+                  .c-right {
+                    h6 {
+                      color: #40b7ce;
+                      margin-top: 25px;
+                    }
+                    p {
+                      color: #c3c3c3;
+                    }
+                  }
+                }
+              `}>
+                <div>
+                  <div className={"c-left"}>
+                    <img src={"/ico/chall/proverance.png"}></img>
+                  </div>
+                  <div className={"c-right"}>
+                  <h6>Provenance</h6>
+                  <p>Electricity production is often source of heavy polluton and the origin of the electricty becomes important feature for pricing models</p>
+                  </div>
+                  </div>
+
+                  <div>
+                  <div className={"c-left"}>
+                    <img src={"/ico/chall/integrity.png"}></img>
+                  </div>
+                  <div className={"c-right"}>
+                  <h6>Integrity</h6>
+                  <p>The welfare of citizens, industry and economy, depends on safe, sustainable and affordable electrical energy.</p>
+                  </div>
+                  </div>
+
+                  <div>
+                  <div className={"c-left"}>
+                    <img src={"/ico/chall/simpl.png"}></img>
+                  </div>
+                  <div className={"c-right"}>
+                  <h6>Simplification</h6>
+                  <p>Electrical grids consist of multiple parties existing on same network infrastructure, all of them transacting in a linear way, whie the overall system is heavily convulted.</p>
+                  </div>
+                  </div>
+
+                  <div>
+                  <div className={"c-left"}>
+                    <img src={"/ico/chall/trans.png"}></img>
+                  </div>
+                  <div className={"c-right"}>
+                  <h6>Transparency</h6>
+                  <p>The tracking of generation, distribution and consumption of electricity should be within open and immutable sysyem, visible to all stakeholders.</p>
+                  </div>
+                  </div>
+              </div>
+            ) : (
+              <img src={"/ico/slideicons/MREZA.png"}></img>
+            )}
+            
           </div>
         </section>
 
@@ -1005,14 +1082,26 @@ export default () => {
                 display: flex;
                 margin-top: 40px;
                 a {
-                  border: 1px solid #40b7ce;
-                  border-radius: 50px;
-                  padding: 20px 80px;
-                  font-size: 25px;
-                  text-decoration: none;
-                  color: #40b7ce;
+                  display: inline-flex;
+                      font-size: 14px;
+                      letter-spacing: 0px;
+                      font-weight: 600;
+                      line-height: 16px;
+                      text-decoration: none !important;
+                      text-transform: uppercase;
+                      background-color: #40b9ce;
+                      /* background: #40b9ce; */
+                      border: none;
+                      border-radius: 2px;
+                      cursor: pointer;
+                      justify-content: center;
+                      padding: 16px 32px;
+                      height: 48px;
+                      text-align: center;
+                      white-space: nowrap;
+                      color: white;
                   :hover {
-                    background: #40b7ce;
+                    background: #34deff;
                     color: white;
                   }
                 }

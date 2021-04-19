@@ -26,7 +26,7 @@ const Team = () => {
         <section>
           <div
             css={css`
-              background: url("/white-bg.svg");
+              background: url("/black-bg.svg");
               background-position: 50%;
               background-size: cover;
               display: flex;
@@ -67,6 +67,11 @@ const Team = () => {
                     display: flex;
                     align-self: baseline;
                     padding-top: 60px;
+                    img {
+                      width: 100%;
+                      height: 100%;
+                      display: block;
+                    }
                   }
                   .right {
                     padding-left: 40px;
@@ -97,6 +102,9 @@ const Team = () => {
                         }
                       }
                     }
+                    p {
+                      color: #c3c3c3;
+                    }
                   }
                   img {
                     margin-bottom: 25px;
@@ -116,6 +124,9 @@ const Team = () => {
                 margin-top: 150px;
                 max-width: 450px;
                 width: 100%;
+                background: white;
+                padding: 20px 20px;
+                border-radius: 5px;
               }
             `}
           >

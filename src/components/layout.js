@@ -24,33 +24,31 @@ const Layout = ({ children }) => {
               "Segoe UI Emoji", "Segoe UI Symbol";
             letter-spacing: 0.2px;
             ::selection {
-                    background: #40b7ce;
-                    color: black;
-                  }
+              background: #40b7ce;
+              color: black;
+            }
           }
-
-          ${"" /* * + * {
-          margin-top: 1rem;
-        } */}
+          .headroom-wrapper {
+            position: absolute;
+            top: 0px;
+            width: 100%;
+          }
           html,
           body {
             margin: 0;
             color: #555;
             
+            @media (max-width: 992px) {
+              width: 100vw !important;
+            overflow-x: hidden !important;
+                    }
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-size: 18px;
             line-height: 1.4;
-
-            /* remove margin for the main div that Gatsby mounts into */
             > div {
               margin-top: 0;
             }
-            
-/* .headroom {transition: all .2s ease-in-out; } */
-/* header.headroom--unpinned {transition: all .2s ease-in-out;}
-header.headroom--unfixed {transition: all .2s ease-in-out;}
-header.headroom--pinned {transition: all .2s ease-in-out;} */
           }
           main {
             /* overflow: hidden; */
@@ -127,7 +125,7 @@ header.headroom--pinned {transition: all .2s ease-in-out;} */
         css={css`
           /* padding-top: 0px;
           margin-top: -60px; */
-          margin-top: -80px;
+          /* margin-top: -80px; */
         `}
       >
         <ParallaxProvider>{children}</ParallaxProvider>

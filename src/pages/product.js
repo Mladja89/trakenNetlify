@@ -44,11 +44,15 @@ const Produkt = () => {
                   p,
                   h2 {
                     max-width: 1000px;
+                    padding: 0px 25px;
                   }
                   p {
                   }
                   h2 {
                     color: #40b7ce;
+                  }
+                  > img {
+                    width: 100%;
                   }
                 }
               }
@@ -60,6 +64,9 @@ const Produkt = () => {
                   max-width: 1000px;
                   justify-content: center;
                   display: flex;
+                  @media (max-width: 992px) {
+                    flex-direction: column-reverse;
+                  }
                   > div {
                     margin: 0xp 20px;
                   }
@@ -94,6 +101,9 @@ const Produkt = () => {
                     img {
                       width: 100%;
                       display: block;
+                        height: 100%;
+
+                      
                     }
                   }
                 }
@@ -123,7 +133,7 @@ const Produkt = () => {
                     Application for Prosumers, Dashboard Application for
                     Electricity Suppliers and operational Blockchain Modul.
                   </p>
-                  <button>DOWNLOAD</button>
+                  {/* <button>DOWNLOAD</button> */}
                 </div>
                 <div className={"right"}>
                   <img src={"/app.png"}></img>
@@ -163,6 +173,13 @@ const Produkt = () => {
                 </p>
               </div>
             </div>
+
+            <div className={"code"}>
+              <div>
+                <img src={"/code3.png"}></img>
+              </div>
+            </div>
+
             <div>
               <div>
                 <h2>DER Registry</h2>
