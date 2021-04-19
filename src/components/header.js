@@ -61,9 +61,9 @@ const Header = () => {
         css={css`
             background: ${
               typeof window !== "undefined" &&
-              window.location.pathname !== "/team/"
-                ? "#00000087"
-                : "black"
+              window.location.pathname == "/team/"
+                ? "black"
+                : "#00000087"
             };
             border-bottom: 1px solid #40b7ce;
             z-index: 999;
