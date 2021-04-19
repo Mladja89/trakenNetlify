@@ -78,10 +78,10 @@ const Header = () => {
               position: relative;
               }
             ${
-              typeof window !== "undefined" &&
-              window.location.pathname !== "/product/"
-                ? null
-                : "max-width: 1400px; margin-left: auto; margin-right: auto; background: #111111;"
+              
+              window.location.pathname == "/product/"
+                ? "max-width: 1400px; margin-left: auto; margin-right: auto; background: #111111;"
+                : null
             }
             }
             .logo-traken {
