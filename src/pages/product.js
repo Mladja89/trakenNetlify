@@ -1,16 +1,8 @@
 import React from "react";
 import Layout from "../components/layout";
 import { css } from "@emotion/core";
-import CasusSection from "../components/casus-section";
-import Subheader from "../components/subheader";
-import Bluedot from "../components/blue-dot";
-import TimelineLayer from "../components/timeline-layer";
-import useData from "../hooks/use-data";
-import HeroCard from "../components/hero-card";
 
 const Produkt = () => {
-  const BLUE_DOT_HEIGHT = 180 * 2;
-  const data = useData();
 
   return (
     <>

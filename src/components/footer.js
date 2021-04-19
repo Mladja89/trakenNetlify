@@ -4,7 +4,6 @@ import { Link } from "gatsby";
 
 export default class Footer extends React.Component {
   render() {
-    const bootstrap = "col-sm-4";
     return (
       <footer
         css={css`
@@ -101,13 +100,12 @@ export default class Footer extends React.Component {
           <div className={"social"}>
             <span>Follow us</span>
             <div>
-              <a href={"https://twitter.com/Traken90473930"}><span className={"twitter"}></span></a>
-              <a href={"https://linkedin.com/company/traken-energy"}><span className={"linkedin"}></span></a>
-              {/* <img src={"/ico/social/facebook.svg"}></img>
-              <img src={"/ico/social/linkedin.svg"}></img>
-              <img src={"/ico/social/instagram.svg"}></img>
-              <img src={"/ico/social/youtube.svg"}></img>
-              <img src={"/ico/social/twitter.svg"}></img> */}
+              <a href={"https://twitter.com/Traken90473930"}>
+                <span className={"twitter"}></span>
+              </a>
+              <a href={"https://linkedin.com/company/traken-energy"}>
+                <span className={"linkedin"}></span>
+              </a>
             </div>
           </div>
           <div className={"links"}>

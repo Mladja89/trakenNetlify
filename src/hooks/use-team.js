@@ -1,34 +1,29 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery } from "gatsby";
 
 const useTeam = () => {
   const data = useStaticQuery(graphql`
     query {
       allTeamJson {
-        edges {
-         node {
-           name
-           desc
-           info {
-             edu
-             mail
-             li
-           }
-           image {
+        nodes {
+          name
+          title
+          linkedin
+          desc
+          image {
             src {
               childImageSharp {
                 fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
+                  src
                 }
               }
             }
           }
-         }
-       }
-       }
+        }
+      }
     }
   `);
 
-  return data.allTeamJson.edges
+  return data.allTeamJson.nodes;
 };
 
 export default useTeam;

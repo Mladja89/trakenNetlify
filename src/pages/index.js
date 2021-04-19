@@ -38,7 +38,7 @@ function Trail({ open, children, heightVar = 30, ...props }) {
 export default () => {
   const rootMarginValues = "4000px 0px -200px 0px";
   const [mobile, setMobile] = useState(false);
-  const { ref, inView, entry } = useInView({
+  const { ref, inView } = useInView({
     threshold: 1,
     rootMargin: "2000px 0px -180px 0px",
   });
@@ -50,7 +50,6 @@ export default () => {
           navigator.userAgent
         )
       ) {
-        // true for mobile device
         setMobile(true);
       }
     }
@@ -63,13 +62,10 @@ export default () => {
           css={css`
             min-height: 100vh;
             height: 100%;
-            /* margin-top: 80px; */
             ${mobile ? "overflow: hidden !important;" : null}
             ${mobile
               ? "background: transparent; margin-bottom: -120px !important;"
               : null}
-            /* overflow: hidden;
-            margin-bottom: -40px; */
             video {
               position: absolute;
               right: 0;
@@ -102,11 +98,6 @@ export default () => {
         >
           <div
             css={css`
-              /* background: url("/hero.png"); */
-              /* background-repeat: no-repeat;
-              background-position: 50% 50%;
-              background-size: cover; */
-
               position: absolute;
               width: 100%;
               height: 100%;
@@ -161,14 +152,13 @@ export default () => {
                 >
                   just got smarter
                 </span>
-                <img src={"/ico/logo/traken-logo-white.png"}></img>
+                <img alt={""} src={"/ico/logo/traken-logo-white.png"}></img>
               </Parallax>
             </div>
           </div>
           <video muted loop autoPlay playsInline id="myVideo">
             <source src="/tltm8e (1).mp4" type="video/mp4"></source>
           </video>
-          {/* <Image fluid={hero.node.childImageSharp.fluid}></Image> */}
         </section>
 
         <section
@@ -356,18 +346,17 @@ export default () => {
                 <>
                   <div className={"upper"}>
                     <div className={"left"}>
-                      <img src={"/ico/product/protocol1.png"}></img>
+                      <img alt={""} src={"/ico/product/protocol1.png"}></img>
                     </div>
                     <div className={"right"}>
                       <h2>Protocol</h2>
-
                     </div>
                   </div>
                   <div className={"down"}>
-                  <h6>
-                        Interoperability and seamless flow of data between
-                        different networks
-                      </h6>
+                    <h6>
+                      Interoperability and seamless flow of data between
+                      different networks
+                    </h6>
                     <p>
                       Protocol will provide interoperability and seamless flow
                       of data between different networks. Using Ricardian and
@@ -387,18 +376,17 @@ export default () => {
                 <>
                   <div className={"upper"}>
                     <div className={"left"}>
-                      <img src={"/ico/product/passport1.png"}></img>
+                      <img alt={""} src={"/ico/product/passport1.png"}></img>
                     </div>
                     <div className={"right"}>
                       <h2>Product passport</h2>
-
                     </div>
                   </div>
                   <div className={"down"}>
-                  <h6>
-                        Framework for standardized product passports generation
-                        and protocol for recording of such data to DLT
-                      </h6>
+                    <h6>
+                      Framework for standardized product passports generation
+                      and protocol for recording of such data to DLT
+                    </h6>
                     <p>
                       A product passport is a digital twin of a device in
                       blockchain space. It allows the device to be identified
@@ -414,11 +402,10 @@ export default () => {
                 <>
                   <div className={"upper"}>
                     <div className={"left"}>
-                      <img src={"/ico/product/der1.png"}></img>
+                      <img alt={""} src={"/ico/product/der1.png"}></img>
                     </div>
                     <div className={"right"}>
                       <h2>Distributed energy resource (DER)</h2>
-                      
                     </div>
                   </div>
                   <div className={"down"}>
@@ -498,68 +485,83 @@ export default () => {
               <h2>of electrical ecosystem</h2>
             </div>
             {mobile ? (
-              <div css={css`
-                padding: 0px 20px;
-                > div {
-                  margin: 35px 0px;
-                  .c-left {
-
-                  }
-                  .c-right {
-                    h6 {
-                      color: #40b7ce;
-                      margin-top: 25px;
+              <div
+                css={css`
+                  padding: 0px 20px;
+                  > div {
+                    margin: 35px 0px;
+                    .c-left {
                     }
-                    p {
-                      color: #c3c3c3;
+                    .c-right {
+                      h6 {
+                        color: #40b7ce;
+                        margin-top: 25px;
+                      }
+                      p {
+                        color: #c3c3c3;
+                      }
                     }
                   }
-                }
-              `}>
+                `}
+              >
                 <div>
                   <div className={"c-left"}>
-                    <img src={"/ico/chall/proverance.png"}></img>
+                    <img alt={""} src={"/ico/chall/proverance.png"}></img>
                   </div>
                   <div className={"c-right"}>
-                  <h6>Provenance</h6>
-                  <p>Electricity production is often source of heavy polluton and the origin of the electricty becomes important feature for pricing models</p>
+                    <h6>Provenance</h6>
+                    <p>
+                      Electricity production is often source of heavy polluton
+                      and the origin of the electricty becomes important feature
+                      for pricing models
+                    </p>
                   </div>
-                  </div>
+                </div>
 
-                  <div>
+                <div>
                   <div className={"c-left"}>
-                    <img src={"/ico/chall/integrity.png"}></img>
+                    <img alt={""} src={"/ico/chall/integrity.png"}></img>
                   </div>
                   <div className={"c-right"}>
-                  <h6>Integrity</h6>
-                  <p>The welfare of citizens, industry and economy, depends on safe, sustainable and affordable electrical energy.</p>
+                    <h6>Integrity</h6>
+                    <p>
+                      The welfare of citizens, industry and economy, depends on
+                      safe, sustainable and affordable electrical energy.
+                    </p>
                   </div>
-                  </div>
+                </div>
 
-                  <div>
+                <div>
                   <div className={"c-left"}>
-                    <img src={"/ico/chall/simpl.png"}></img>
+                    <img alt={""} src={"/ico/chall/simpl.png"}></img>
                   </div>
                   <div className={"c-right"}>
-                  <h6>Simplification</h6>
-                  <p>Electrical grids consist of multiple parties existing on same network infrastructure, all of them transacting in a linear way, whie the overall system is heavily convulted.</p>
+                    <h6>Simplification</h6>
+                    <p>
+                      Electrical grids consist of multiple parties existing on
+                      same network infrastructure, all of them transacting in a
+                      linear way, whie the overall system is heavily convulted.
+                    </p>
                   </div>
-                  </div>
+                </div>
 
-                  <div>
+                <div>
                   <div className={"c-left"}>
-                    <img src={"/ico/chall/trans.png"}></img>
+                    <img alt={""} src={"/ico/chall/trans.png"}></img>
                   </div>
                   <div className={"c-right"}>
-                  <h6>Transparency</h6>
-                  <p>The tracking of generation, distribution and consumption of electricity should be within open and immutable sysyem, visible to all stakeholders.</p>
+                    <h6>Transparency</h6>
+                    <p>
+                      The tracking of generation, distribution and consumption
+                      of electricity should be within open and immutable sysyem,
+                      visible to all stakeholders.
+                    </p>
                   </div>
-                  </div>
+                </div>
               </div>
             ) : (
-              <img src={"/ico/slideicons/MREZA.png"}></img>
+              <img alt={""} src={"/ico/slideicons/MREZA.png"}></img>
             )}
-            
           </div>
         </section>
 
@@ -580,7 +582,7 @@ export default () => {
               }
             `}
           >
-            <img src={"/slide53.png"}></img>
+            <img alt={""} src={"/slide53.png"}></img>
           </div>
         </section>
 
@@ -624,7 +626,7 @@ export default () => {
         >
           <div>
             <div>
-              <img src={"/ico/slideicons/slide7.png"}></img>
+              <img alt={""} src={"/ico/slideicons/slide7.png"}></img>
             </div>
             <div className={"tech-right"}>
               <h2>Technology stack</h2>
@@ -847,14 +849,10 @@ export default () => {
               </div>
             </div>
             <div>
-              <img src={"/ico/slideicons/slide9.png"}></img>
+              <img alt={""} src={"/ico/slideicons/slide9.png"}></img>
             </div>
           </div>
         </section>
-
-
-
-
 
         <section
           css={css`
@@ -910,7 +908,7 @@ export default () => {
         >
           <div class={"electric-wrap"}>
             <div>
-              <img src={"/ico/slideicons/slide10.png"}></img>
+              <img alt={""} src={"/ico/slideicons/slide10.png"}></img>
             </div>
             <div>
               <div>
@@ -985,58 +983,6 @@ export default () => {
           </div>
         </section>
 
-        {/* <section
-          css={css`
-            background: #020202;
-            display: flex;
-            justify-content: center;
-            > div {
-              display: flex;
-              flex-direction: row;
-              padding: 80px 0px;
-              @media (max-width: 992px) {
-                flex-direction: column-reverse;
-              }
-              > div:nth-of-type(1) {
-                display: flex;
-                align-items: center;
-              }
-              h2 {
-                color: #40b7ce;
-                text-transform: uppercase;
-                font-weight: 600;
-              }
-              div > h6 {
-                color: #40b7ce;
-              }
-              div > ul > li {
-                color: #c3c3c3;
-              }
-            }
-          `}
-        >
-          <div>
-            <div>
-              <img src={"/ico/slideicons/slide10.png"}></img>
-            </div>
-            <div>
-              <h2></h2>
-              <div>
-                <h6> CONSUMER BENEFITS ARE AMAZING</h6>
-                <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
         <section>
           <div
             css={css`
@@ -1083,23 +1029,22 @@ export default () => {
                 margin-top: 40px;
                 a {
                   display: inline-flex;
-                      font-size: 14px;
-                      letter-spacing: 0px;
-                      font-weight: 600;
-                      line-height: 16px;
-                      text-decoration: none !important;
-                      text-transform: uppercase;
-                      background-color: #40b9ce;
-                      /* background: #40b9ce; */
-                      border: none;
-                      border-radius: 2px;
-                      cursor: pointer;
-                      justify-content: center;
-                      padding: 16px 32px;
-                      height: 48px;
-                      text-align: center;
-                      white-space: nowrap;
-                      color: white;
+                  font-size: 14px;
+                  letter-spacing: 0px;
+                  font-weight: 600;
+                  line-height: 16px;
+                  text-decoration: none !important;
+                  text-transform: uppercase;
+                  background-color: #40b9ce;
+                  border: none;
+                  border-radius: 2px;
+                  cursor: pointer;
+                  justify-content: center;
+                  padding: 16px 32px;
+                  height: 48px;
+                  text-align: center;
+                  white-space: nowrap;
+                  color: white;
                   :hover {
                     background: #34deff;
                     color: white;
@@ -1116,13 +1061,13 @@ export default () => {
             <div className={"team-title"}>Project Team</div>
             <div className={"team"}>
               <div>
-                <img src={"/ico/slideicons/team-full.png"}></img>
+                <img alt={""} src={"/ico/slideicons/team-full.png"}></img>
               </div>
             </div>
             <div className={"link-team"}>
               <Link to="/team/">Meet our Team</Link>
             </div>
-            <img
+            <img alt={""}
               src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}
             ></img>
           </div>
