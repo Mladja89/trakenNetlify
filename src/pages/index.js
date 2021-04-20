@@ -1,43 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { Link } from "gatsby";
-import { css } from "@emotion/core";
+import { css } from "@emotion/react";
 import { Parallax } from "react-scroll-parallax";
-import { useTrail, a } from "react-spring";
-import { InView, useInView } from "react-intersection-observer";
-
-function Trail({ open, children, heightVar = 30, ...props }) {
-  const items = React.Children.toArray(children);
-  const trail = useTrail(items.length, {
-    config: { mass: 5, tension: 2000, friction: 200 },
-    opacity: open ? 1 : 0,
-    x: open ? 0 : 20,
-    height: open ? heightVar : 0,
-    from: { opacity: 0, x: 20, height: 0 },
-  });
-  return (
-    <div className="trails-main" {...props}>
-      <div>
-        {trail.map(({ x, height, ...rest }, index) => (
-          <a.div
-            key={items[index]}
-            className="trails-text"
-            style={{
-              ...rest,
-              transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
-            }}
-          >
-            <a.div style={{ height }}>{items[index]}</a.div>
-          </a.div>
-        ))}
-      </div>
-    </div>
-  );
-}
+import { useInView } from "react-intersection-observer";
+import TrakenList from "../components/traken-list";
+import useData from "../hooks/use-data";
 
 export default () => {
-  const rootMarginValues = "4000px 0px -200px 0px";
   const [mobile, setMobile] = useState(false);
+  const data = useData();
+
   const { ref, inView } = useInView({
     threshold: 1,
     rootMargin: "2000px 0px -180px 0px",
@@ -171,25 +144,6 @@ export default () => {
             padding-bottom: 60px;
             padding-top: 80px;
             position: relative;
-            /* ::before {
-              content: "";
-              position: absolute;
-              background: url("/hero-media-illustration-dark-2.png");
-              width: 400px;
-              height: 400px;
-              left: 0px;
-              opacity: 0.1;
-            }
-            ::after {
-              content: "";
-              position: absolute;
-              background: url("/hero-media-illustration-dark-2.png");
-              width: 400px;
-              height: 400px;
-              right: 0px;
-              opacity: 0.1;
-              bottom: 0;
-            } */
             h6,
             div {
               color: #c3c3c3;
@@ -263,8 +217,6 @@ export default () => {
                         height: 1px;
                         background: #000000;
                         top: -25px;
-                        /* left: 50%;
-                        transform: translate(-50%, 0); */
                       }
                     h6 {
                         margin-top: 50px;
@@ -272,19 +224,6 @@ export default () => {
                         color: #40b7ce;
                       }
                   }
-
-                  /* div {
-                    line-height: 1.5;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    img {
-                      margin-right: 30px;
-                      min-height: 112px;
-                      margin-bottom: 50px;
-                    }
-
-                  } */
                 }
               }
               div {
@@ -591,138 +530,9 @@ export default () => {
             background: #020202;
             display: flex;
             justify-content: center;
-            > div {
-              display: flex;
-              flex-direction: row;
-              padding: 80px 0px;
-              @media (max-width: 992px) {
-                flex-direction: column;
-              }
-              .tech-right {
-                display: flex;
-                flex-direction: column;
-                align-items: baseline;
-                span {
-                  padding-left: 30px;
-                }
-              }
-              > div:nth-of-type(1) {
-                display: flex;
-                align-items: center;
-              }
-              h2 {
-                color: #40b7ce;
-                text-transform: uppercase;
-                font-weight: 600;
-              }
-              div > h6 {
-                color: #40b7ce;
-              }
-              div > ul > li {
-                color: #c3c3c3;
-              }
-            }
           `}
         >
-          <div>
-            <div>
-              <img alt={""} src={"/ico/slideicons/slide7.png"}></img>
-            </div>
-            <div className={"tech-right"}>
-              <h2>Technology stack</h2>
-
-              <div>
-                <h6>Hybrid blockchain network </h6>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView}>
-                        <span>> Private permissioned blockchain</span>
-                        <span>
-                          > Public chain that could be deployed on other chain
-                          or chains simultaneously providing interoperability
-                        </span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-
-              <div>
-                <h6>Gateway Protocol</h6>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView}>
-                        <span>
-                          > Protocol defines identities, how it is generated,
-                          how it is stored and the way it interacts
-                        </span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-
-              <div>
-                <h6>Smart contracts</h6>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView}>
-                        <span>
-                          > Executes on its own based on the instructions
-                          provided in the computer code
-                        </span>
-                        <span>
-                          > Immutable, self-verifying and auto-enforcing
-                        </span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-
-              <div>
-                <h6>Ricardian contracts</h6>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView}>
-                        <span>
-                          > Available in printable form, program parsable with
-                          all forms equivalent in terms of manifest
-                        </span>
-                        <span>> Readable by humans and machines</span>
-                        <span>> Signed by the issuer and both parties</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-
-              <div>
-                <h6>Data Pipeline</h6>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView}>
-                        <span>
-                          > How it communicates with end points that insert data
-                          into the system such as Skada from various
-                          manufacturers
-                        </span>
-                        <span>
-                          > How metadata is stored so that it can be replicated
-                          on other systems
-                        </span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-            </div>
-          </div>
+          <TrakenList data={data.technology} direction={"left"}></TrakenList>
         </section>
 
         <section
@@ -730,128 +540,9 @@ export default () => {
             background: #020202;
             display: flex;
             justify-content: center;
-            .electric-wrap {
-              @media (max-width: 992px) {
-                flex-direction: column-reverse;
-                }
-              > div {
-                flex-direction: column;
-                display: flex;
-                align-items: flex-end;
-                .content {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: flex-end;
-                }
-              }
-              > div:nth-of-type(2) {
-                display: flex;
-                justify-content: center;
-                padding-top: 60px;
-              }
-            }
-            > div {
-              display: flex;
-              flex-direction: row;
-              padding: 80px 0px;
-              max-width: 1000px;
-              text-align: end;
-              }
-
-              h2 {
-                color: #40b7ce;
-                text-transform: uppercase;
-                font-weight: 600;
-                margin-bottom: 40px;
-              }
-              div > h6 {
-                color: #40b7ce;
-              }
-              div > ul {
-                padding-right: 20px;
-              }
-              div > ul > li {
-                color: #c3c3c3;
-                direction: rtl;
-              }
-            }
           `}
         >
-          <div class={"electric-wrap"}>
-            <div>
-              <div>
-                <h2>Electric metering becomes immutable and transparent</h2>
-              </div>
-              <div className={"content"}>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> Operational performances tracking {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> Custom reporting intervals {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> Real time service management {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> Mobispanty of consumer accounts {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> Consumption patterns tracking {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> Supply chain transparency {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> New business models {`<`}</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-            </div>
-            <div>
-              <img alt={""} src={"/ico/slideicons/slide9.png"}></img>
-            </div>
-          </div>
+          <TrakenList data={data.metering} direction={"right"}></TrakenList>
         </section>
 
         <section
@@ -859,128 +550,9 @@ export default () => {
             background: #020202;
             display: flex;
             justify-content: center;
-            .electric-wrap {
-              @media (max-width: 992px) {
-                flex-direction: column-reverse;
-                }
-              > div {
-                flex-direction: column;
-                display: flex;
-                align-items: flex-start;
-                .content {
-                  display: flex;
-                  flex-direction: column;
-                  align-items: flex-start;
-                }
-              }
-              > div:nth-of-type(1) {
-                display: flex;
-                justify-content: center;
-                padding-top: 60px;
-              }
-            }
-            > div {
-              display: flex;
-              flex-direction: row;
-              padding: 80px 0px;
-              max-width: 1000px;
-              /* text-align: end; */
-              }
-
-              h2 {
-                color: #40b7ce;
-                text-transform: uppercase;
-                font-weight: 600;
-                margin-bottom: 40px;
-              }
-              div > h6 {
-                color: #40b7ce;
-              }
-              div > ul {
-                padding-right: 20px;
-              }
-              div > ul > li {
-                color: #c3c3c3;
-                direction: rtl;
-              }
-            }
           `}
         >
-          <div class={"electric-wrap"}>
-            <div>
-              <img alt={""} src={"/ico/slideicons/slide10.png"}></img>
-            </div>
-            <div>
-              <div>
-                <h2>Electric energy becomes a liquid asset</h2>
-              </div>
-              <div className={"content"}>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > Peer-to-Peer trading</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > Real time trading or production permits</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > Transparency and provenance</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > Origin tracking</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > New financing models</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > Democratizing investment</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-                <InView rootMargin={rootMarginValues}>
-                  {({ inView, ref, entry }) => (
-                    <div ref={ref}>
-                      <Trail open={inView} heightVar={50}>
-                        <span> > Realization of non-financial value</span>
-                      </Trail>
-                    </div>
-                  )}
-                </InView>
-              </div>
-            </div>
-          </div>
+          <TrakenList data={data.asset} direction={"left"}></TrakenList>
         </section>
 
         <section>
@@ -1067,7 +639,8 @@ export default () => {
             <div className={"link-team"}>
               <Link to="/team/">Meet our Team</Link>
             </div>
-            <img alt={""}
+            <img
+              alt={""}
               src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}
             ></img>
           </div>

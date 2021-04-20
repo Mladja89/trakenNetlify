@@ -3,7 +3,6 @@ import Layout from "../components/layout";
 import { css } from "@emotion/core";
 
 const Produkt = () => {
-
   return (
     <>
       <Layout>
@@ -93,12 +92,13 @@ const Produkt = () => {
                     img {
                       width: 100%;
                       display: block;
-                        height: 100%;
-
-                      
+                      height: 100%;
                     }
                   }
                 }
+              }
+              .screenshots {
+                display: flex;
               }
             }
           `}
@@ -194,6 +194,112 @@ const Produkt = () => {
               </div>
             </div>
 
+            <div
+              className={"screenshots"}
+              css={css`
+                position: relative;
+                min-height: 520px;
+                @media (max-width: 992px) {
+                    min-height: 320px;
+                    
+                  }
+                .fadein {
+                  position: absolute;
+                  top: 0px;
+                  left: 50%;
+                  transform: translate(-50%, 0);
+                  margin: auto;
+                  background: url("/bgblue.png");
+                  background-size: contain;
+                  background-repeat: no-repeat;
+                  height: 100%;
+                }
+                .fadein img {
+                  position: absolute;
+                  /* left: -65px; */
+                  top: 0;
+                  -webkit-animation-name: fade;
+                  -webkit-animation-iteration-count: infinite;
+                  -webkit-animation-duration: 6s;
+                  animation-name: fade;
+                  animation-iteration-count: infinite;
+                  animation-duration: 10s;
+                  right: -50px;
+                  @media (max-width: 992px) {
+                    width: 80% !important;
+                    right: 30px !important;
+                  }
+                }
+
+                @-webkit-keyframes fade {
+                  0% {
+                    opacity: 0;
+                  }
+                  20% {
+                    opacity: 1;
+                  }
+                  33% {
+                    opacity: 1;
+                  }
+                  53% {
+                    opacity: 0;
+                  }
+                  100% {
+                    opacity: 0;
+                  }
+                }
+                @keyframes fade {
+                  0% {
+                    opacity: 0;
+                  }
+                  20% {
+                    opacity: 1;
+                  }
+                  33% {
+                    opacity: 1;
+                  }
+                  53% {
+                    opacity: 0;
+                  }
+                  100% {
+                    opacity: 0;
+                  }
+                }
+
+                #f1 {
+                  /* background-color: lightblue; */
+                }
+                #f2 {
+                  -webkit-animation-delay: -8s;
+                }
+                #f3 {
+                  -webkit-animation-delay: -6s;
+                } 
+                #f4 {
+                  -webkit-animation-delay: -4s;
+                } 
+                #f5 {
+                  -webkit-animation-delay: -2s;
+                } 
+                > .fadein {
+                  
+                  > img {
+                    transform: perspective(1000px) rotateY(18deg) translateY(0%);
+                    box-shadow: -3px 16px 18px 2px #00000073;
+                  }
+                  }
+                }
+              `}
+            >
+              <div class="fadein">
+                <img id="f5" src="../ico/screenshots/sc1.png"></img>
+                <img id="f4" src="../ico/screenshots/sc2.png"></img>
+                <img id="f3" src="../ico/screenshots/sc3.png"></img>
+                <img id="f2" src="../ico/screenshots/sc4.png"></img>
+                <img id="f1" src="../ico/screenshots/sc5.png"></img>
+              </div>
+            </div>
+
             <div>
               <div>
                 <h2>The TrakEn Platform features include:</h2>
@@ -224,21 +330,25 @@ const Produkt = () => {
               </div>
             </div>
 
-            <div css={css`
-            position: relative;
-            `}>
-              <div css={css`
-                ::before {
-                  content: "";
-    position: absolute;
-    width: 100px;
-    height: 2px;
-    background: #40b7ce;
-    top: -20px;
-    left: 50%;
-    transform: translate(-50%, 0);
-                }
-              `}>
+            <div
+              css={css`
+                position: relative;
+              `}
+            >
+              <div
+                css={css`
+                  ::before {
+                    content: "";
+                    position: absolute;
+                    width: 100px;
+                    height: 2px;
+                    background: #40b7ce;
+                    top: -20px;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                  }
+                `}
+              >
                 <p>
                   TRAKEN platform would be implemented as a stand-alone
                   solution, as an additional software module to the platform for

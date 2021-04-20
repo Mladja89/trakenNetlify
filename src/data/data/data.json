@@ -1,106 +1,72 @@
 {
-    "business": [
-        {
-            "icon": "/ico/produkt/ico-documents.svg",
-            "title": "100+ professionelle Vertragsvorlagen",
-            "content": "Ihr Ziel sind rechtssichere Dokumente. Unsere Vorlagen von spezialisierten Anwälten sind der Weg dahin."
-        },
-        {
-            "icon": "/ico/produkt/ico-template.svg",
-            "title": "Dokumente in Vorlagen verwandeln",
-            "content": "Sie möchten Ihre eigenen Verträge digitalisieren. Wir bieten Ihnen das passende Werkzeug dazu."
-        },
-        {
-            "icon": "/ico/produkt/ico-find.svg",
-            "title": "Dokumente sofort finden",
-            "content": "Wichtige Dokumente zu suchen, ist mühsam und unnötig. Wir bringen Ordnung in Ihr Unternehmen"
-        },
-        {
-            "icon": "/ico/produkt/ico-calendar.svg",
-            "title": "Fristen und Rechtsänderungen überwachen lassen",
-            "content": "Sie haben Angst, Fristen oder Rechtsänderungen zu verpassen. Wir behalten für Sie den Überblick."
-        },
-        {
-            "icon": "/ico/produkt/ico-video-call.svg",
-            "title": "Wir hören Ihnen zu",
-            "content": "Sie möchten sich von einem erfahrenen Rechtsanwalt beraten lassen. Wir arbeiten mit Partnerkanzleien mit breiter Expertise zusammen."
-        },
-        {
-            "icon": "/ico/produkt/ico-talk.svg",
-            "title": "Unverbindliche Erstberatung",
-            "content": "Sie wissen bei einem Rechtsproblem nicht weiter. Unsere Anwälte geben Ihnen für CHF 40 eine unverbindliche Erstberatung."
-        },
-        {
-            "icon": "/ico/produkt/ico-price.svg",
-            "title": "Fixe Preise für alle Fälle",
-            "content": "Anwaltsrechnungen auf Stundenbasis können schnell ins Geld gehen. Wir garantieren Ihnen mit unseren Fixpreisen Kostensicherheit."
-        },
-        {
-            "icon": "/ico/produkt/ico-sight.svg",
-            "title": "Wir wissen immer weiter",
-            "content": "Sie brauchen technische Unterstützung. Unser Support-Team ist kostenlos für Sie da."
-        }
-    ],
-    "losungen": [
-        {
-            "icon": "/ico/ico-store.svg",
-            "title": "CASUS KMU",
-            "content": "95% aller KMU in der Schweiz haben keine Rechtsabteilung. Aber alle haben Rechtsfragen. CASUS ändert das. Wir sind die Rechtsabteilung für KMU. Wir kümmern uns um alles rund um Recht, damit Sie sich auf Ihr Geschäft und Ihre Kunden fokussieren können."
-        },
-        {
-            "icon": "/ico/ico-corpo.svg",
-            "title": "CASUS Corporate",
-            "content": "Anwaltskanzleien und Rechtsabteilungen sollen sich auf das Wesentliche im Recht konzentrieren können. Den Rest übernimmt CASUS. Wir digitalisieren die Erstellung und Verwaltung von juristischen Dokumenten. Damit standardisierbare Arbeit effizienter erledigt ist und Ihnen mehr Zeit für die wirklich interessanten Aufgaben bleibt."
-        }
-    ],    
-    "pricing": [
-        {
-            "title": "Free",
-            "button": "Kostenlos registrieren",
-            "subtitle": "Starter",
-            "content": ["1 Nutzer", "1 Dokument", "1 Vorlage"]
-        },
-        {
-            "title": "chf 60 /monat",
-            "button": "Basis wählen",
-            "subtitle": "Basic",
-            "content": ["3 Nutzer", "3 Dokument", "3 Vorlage", "Zugang zu Rechtsberatung"]
-        },
-        {
-            "title": "Auf Anfrage",
-            "button": "Kontaktieren",
-            "subtitle": "Business",
-            "content": ["Gerne stellen wir Ihnen ein individuelles Paket zusammen, das den Bedürfnissen Ihres Unternehmens entspricht. Wir freuen uns auf Sie!"]
-        }
-    ],
-    "timeline": [
-        {
-            "title": "Title here",
-            "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-            "image": {
-                "src": "./images/timeline1.jpg"
-            }
-        },
-        {
-            "title": "Title here2",
-            "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-            "image": {
-                "src": "./images/timeline2.jpg"
-            }
-        },
-        {
-            "title": "Title here3",
-            "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-            "image": {
-                "src": "./images/timeline3.jpg"
-            }
-        },
-        {
-            "title": "Title here4",
-            "content": "Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.",
-            "image": {
-                "src": "./images/timeline4.jpg"
-            }
-        }
+  "technology": {
+    "title": "Technology stack",
+    "image": "./images/slide7.png",
+    "mobile-image": "asdd",
+    "data": [
+      {
+        "subtitle": "Hybrid blockchain network",
+        "content": [
+          "> Private permissioned blockchain",
+          "> Public chain that could be deployed on other chain or chains simultaneously providing interoperability"
+        ]
+      },
+      {
+        "subtitle": "Gateway Protocol",
+        "content": [
+          "> Protocol defines identities, how it is generated, how it is stored and the way it interacts"
+        ]
+      },
+      {
+        "subtitle": "Smart contracts",
+        "content": [
+          "> Executes on its own based on the instructions provided in the computer code",
+          "> Immutable, self-verifying and auto-enforcing"
+        ]
+      },
+      {
+        "subtitle": "Ricardian contracts",
+        "content": [
+          "> Available in printable form, program parsable with all forms equivalent in terms of manifest",
+          "> Readable by humans and machines",
+          "> Signed by the issuer and both parties"
+        ]
+      },
+      {
+        "subtitle": "Data Pipeline",
+        "content": [
+          "> How it communicates with end points that insert data into the system such as Skada from various manufacturers",
+          "> How metadata is stored so that it can be replicated on other systems"
+        ]
+      }
     ]
+  },
+  "metering": {
+    "title": "Electric metering becomes immutable and transparent",
+    "image": "./images/slide9.png",
+    "mobile-image": "asdd",
+    "data": [
+      "Operational performances tracking <",
+      "Custom reporting intervals <",
+      "Real time service management <",
+      "Mobispanty of consumer accounts <",
+      "Consumption patterns tracking <",
+      "Supply chain transparency <",
+      "New business models <"
+    ]
+  },
+  "asset": {
+    "title": "Electric energy becomes a liquid asset",
+    "image": "./images/slide10.png",
+    "mobile-image": "asdd",
+    "data": [
+      "> Peer-to-Peer trading",
+      "> Real time trading or production permits",
+      "> Transparency and provenance",
+      "> Origin tracking",
+      "> New financing models",
+      "> Democratizing investment",
+      "> Realization of non-financial value"
+    ]
+  }
 }

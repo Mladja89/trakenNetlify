@@ -4,44 +4,52 @@ const useData = () => {
   const data = useStaticQuery(graphql`
     query {
       allDataJson {
-        edges {
-          node {
-            business {
-              title
-              content
-              icon
-            }
-            losungen {
-              icon
-              title
-              content
-            }
-            pricing {
-              title
-              subtitle
-              content
-              button
-            }
-            timeline {
-              title
-              content
-              image {
-                src {
-                  childImageSharp {
-                    fluid {
-                      ...GatsbyImageSharpFluid_tracedSVG
-                    }
-                  }
+        nodes {
+          technology {
+            title
+            image {
+              childImageSharp {
+                fluid {
+                  src
                 }
               }
             }
+            mobile_image
+            data {
+              subtitle
+              content
+            }
+          }
+          metering {
+            title
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+            mobile_image
+            data
+          }
+          asset {
+            title
+            image {
+              childImageSharp {
+                fluid {
+                  src
+                }
+              }
+            }
+            mobile_image
+            data
           }
         }
       }
     }
   `);
 
-  return data.allDataJson.edges[0].node;
+  return data.allDataJson.nodes[0];
 };
 
 export default useData;

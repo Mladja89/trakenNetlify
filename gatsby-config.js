@@ -37,19 +37,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/partner/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
         path: `./src/data/team/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/data/board/`,
       },
     },
     {
@@ -57,12 +45,6 @@ module.exports = {
       options: {
         path: `./src/data/data/`,
       },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `./src/data/accordion/`,
-      },
-    },
+    }
   ],
 };
