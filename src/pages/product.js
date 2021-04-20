@@ -220,7 +220,7 @@ const Produkt = () => {
                   top: 0;
                   -webkit-animation-name: fade;
                   -webkit-animation-iteration-count: infinite;
-                  -webkit-animation-duration: 6s;
+                  -webkit-animation-duration: 10s;
                   animation-name: fade;
                   animation-iteration-count: infinite;
                   animation-duration: 10s;
