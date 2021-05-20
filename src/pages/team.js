@@ -12,7 +12,7 @@ const Team = () => {
         <section>
           <div
             css={css`
-              background: url("/black-bg.svg");
+              background: url("./black-bg.svg");
               background-position: 50%;
               background-size: cover;
               display: flex;
@@ -72,11 +72,11 @@ const Team = () => {
                           display: flex;
                           min-width: 25px;
                           height: 25px;
-                          background: url("/ico/social/team-li-1.svg");
+                          background: url("./ico/social/team-li-1.svg");
                           background-repeat: no-repeat;
                           margin-right: 15px;
                           :hover {
-                            background: url("/ico/social/team-li-2.svg");
+                            background: url("./ico/social/team-li-2.svg");
                           }
                           img {
                             width: 100%;
@@ -142,7 +142,7 @@ const Team = () => {
               })}
             </div>
             <img
-              src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}
+              src={"./ico/slideicons/eit_climate-kic_eu_flag_black.png"}
             ></img>
           </div>
         </section>

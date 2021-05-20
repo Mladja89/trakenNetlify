@@ -33,9 +33,9 @@ const Header = () => {
 
   const navLinks = [
     { value: "Home", link: "/" },
-    { value: "Product", link: "/product/" },
-    { value: "Team", link: "/team/" },
-    { value: "Contact", link: "/contact/" },
+    { value: "Product", link: "../product/" },
+    { value: "Team", link: "../team/" },
+    { value: "Contact", link: "../contact/" },
   ];
 
   useEffect(() => {
@@ -125,7 +125,7 @@ const Header = () => {
       >
         <NavLink className={"logo-traken"} fontWeight="bold">
           <Link to="/">
-            <img src={`/ico/logo/traken-logo2.png`}></img>
+            <img src={`./ico/logo/traken-logo2.png`}></img>
           </Link>
           {mobile ? (
             <div onClick={() => setExpand(!expand)}>

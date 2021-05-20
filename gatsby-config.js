@@ -4,6 +4,7 @@ module.exports = {
     siteUrl: `http://traken.co/`,
     description: "Smart energy solutions.",
   },
+  // pathPrefix: `/traken/`,
   plugins: [
     "gatsby-plugin-emotion",
     "gatsby-plugin-react-helmet",
@@ -11,6 +12,16 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-json",
     "gatsby-transformer-inline-svg",
+    {
+      resolve: 'gatsby-plugin-htaccess',
+      options: {
+        RewriteBase: '/traken/',
+        https: true,
+        www: true,
+        SymLinksIfOwnerMatch: true
+      }
+    },
+
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

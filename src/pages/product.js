@@ -48,7 +48,7 @@ const Produkt = () => {
                 }
               }
               .hero-product {
-                background: url("/product-illustration2.png");
+                background: url("./product-illustration2.png");
                 background-repeat: no-repeat;
                 background-position: 100% 0%;
                 > div {
@@ -128,7 +128,7 @@ const Produkt = () => {
                   {/* <button>DOWNLOAD</button> */}
                 </div>
                 <div className={"right"}>
-                  <img src={"/app.png"}></img>
+                  <img src={"./app.png"}></img>
                 </div>
               </div>
             </div>
@@ -168,7 +168,7 @@ const Produkt = () => {
 
             <div className={"code"}>
               <div>
-                <img src={"/code3.png"}></img>
+                <img src={"./code3.png"}></img>
               </div>
             </div>
 
@@ -209,7 +209,7 @@ const Produkt = () => {
                   left: 50%;
                   transform: translate(-50%, 0);
                   margin: auto;
-                  background: url("/bgblue.png");
+                  background: url("./bgblue.png");
                   background-size: contain;
                   background-repeat: no-repeat;
                   height: 100%;

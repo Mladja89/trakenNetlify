@@ -113,6 +113,7 @@ const Layout = ({ children }) => {
         <html lang="en"></html>
         <title>{title}</title>
         <meta name="description" content={description}></meta>
+        <link rel="shortcut icon" type="image/jpg" href="../ico/logo/favicon-traken.png"/>
       </Helmet>
       <Header />
       <link

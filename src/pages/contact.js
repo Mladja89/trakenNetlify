@@ -10,7 +10,7 @@ const Contact = () => {
       <section>
       <div
             css={css`
-              background: url("/black-bg.svg");
+              background: url("./black-bg.svg");
               background-position: 50%;
               background-size: cover;
               display: flex;
@@ -37,11 +37,11 @@ const Contact = () => {
                   a {
                     width: 60px;
                     height: 100px;
-                    background: url("/ico/social/w-mail.svg");
+                    background: url("./ico/social/w-mail.svg");
                     background-repeat: no-repeat;
                     background-position: 50%;
                     :hover {
-                    background: url("/ico/social/mail.svg");
+                    background: url("./ico/social/mail.svg");
                     background-repeat: no-repeat;
                     background-position: 50%;
                     }
@@ -65,7 +65,7 @@ const Contact = () => {
               </div>
             </div>
             <img
-              src={"/ico/logo/traken-logo-white.png"}
+              src={"./ico/logo/traken-logo-white.png"}
             ></img>
           </div>
         </section>

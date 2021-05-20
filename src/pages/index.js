@@ -93,7 +93,7 @@ export default () => {
                 position: absolute;
                 width: 100%;
                 height: calc(100% - 80px);
-                background: url("/dot.png");
+                background: url("./dot.png");
                 top: 80px;
                 pointer-events: none;
               }
@@ -125,12 +125,12 @@ export default () => {
                 >
                   just got smarter
                 </span>
-                <img alt={""} src={"/ico/logo/traken-logo-white.png"}></img>
+                <img alt={""} src={"./ico/logo/traken-logo-white.png"}></img>
               </Parallax>
             </div>
           </div>
           <video muted loop autoPlay playsInline id="myVideo">
-            <source src="/tltm8e (1).mp4" type="video/mp4"></source>
+            <source src="./tltm8e (1).mp4" type="video/mp4"></source>
           </video>
         </section>
 
@@ -285,7 +285,7 @@ export default () => {
                 <>
                   <div className={"upper"}>
                     <div className={"left"}>
-                      <img alt={""} src={"/ico/product/protocol1.png"}></img>
+                      <img alt={""} src={"./ico/product/protocol1.png"}></img>
                     </div>
                     <div className={"right"}>
                       <h2>Protocol</h2>
@@ -315,7 +315,7 @@ export default () => {
                 <>
                   <div className={"upper"}>
                     <div className={"left"}>
-                      <img alt={""} src={"/ico/product/passport1.png"}></img>
+                      <img alt={""} src={"./ico/product/passport1.png"}></img>
                     </div>
                     <div className={"right"}>
                       <h2>Product passport</h2>
@@ -341,7 +341,7 @@ export default () => {
                 <>
                   <div className={"upper"}>
                     <div className={"left"}>
-                      <img alt={""} src={"/ico/product/der1.png"}></img>
+                      <img alt={""} src={"./ico/product/der1.png"}></img>
                     </div>
                     <div className={"right"}>
                       <h2>Distributed energy resource (DER)</h2>
@@ -364,7 +364,7 @@ export default () => {
               </Parallax>
             </div>
             <div className={"link-product"}>
-              <Link to="/product/">Find out more</Link>
+              <Link to="./product/">Find out more</Link>
             </div>
           </div>
         </section>
@@ -382,7 +382,7 @@ export default () => {
               position: absolute;
               width: 100%;
               height: calc(100% - 80px);
-              background: url("/ico/slideicons/mreza-bg.png");
+              background: url("./ico/slideicons/mreza-bg.png");
               background-repeat: no-repeat;
               top: 60%;
               opacity: 20%;
@@ -445,7 +445,7 @@ export default () => {
               >
                 <div>
                   <div className={"c-left"}>
-                    <img alt={""} src={"/ico/chall/proverance.png"}></img>
+                    <img alt={""} src={"./ico/chall/proverance.png"}></img>
                   </div>
                   <div className={"c-right"}>
                     <h6>Provenance</h6>
@@ -459,7 +459,7 @@ export default () => {
 
                 <div>
                   <div className={"c-left"}>
-                    <img alt={""} src={"/ico/chall/integrity.png"}></img>
+                    <img alt={""} src={"./ico/chall/integrity.png"}></img>
                   </div>
                   <div className={"c-right"}>
                     <h6>Integrity</h6>
@@ -472,7 +472,7 @@ export default () => {
 
                 <div>
                   <div className={"c-left"}>
-                    <img alt={""} src={"/ico/chall/simpl.png"}></img>
+                    <img alt={""} src={"./ico/chall/simpl.png"}></img>
                   </div>
                   <div className={"c-right"}>
                     <h6>Simplification</h6>
@@ -486,7 +486,7 @@ export default () => {
 
                 <div>
                   <div className={"c-left"}>
-                    <img alt={""} src={"/ico/chall/trans.png"}></img>
+                    <img alt={""} src={"./ico/chall/trans.png"}></img>
                   </div>
                   <div className={"c-right"}>
                     <h6>Transparency</h6>
@@ -499,7 +499,7 @@ export default () => {
                 </div>
               </div>
             ) : (
-              <img alt={""} src={"/ico/slideicons/MREZA.png"}></img>
+              <img alt={""} src={"./ico/slideicons/MREZA.png"}></img>
             )}
           </div>
         </section>
@@ -507,7 +507,7 @@ export default () => {
         <section>
           <div
             css={css`
-              background: url("/white-bg.svg");
+              background: url("./white-bg.svg");
               background-position: 50%;
               background-size: cover;
               display: flex;
@@ -521,7 +521,7 @@ export default () => {
               }
             `}
           >
-            <img alt={""} src={"/slide53.png"}></img>
+            <img alt={""} src={"./slide53.png"}></img>
           </div>
         </section>
 
@@ -558,7 +558,7 @@ export default () => {
         <section>
           <div
             css={css`
-              background: url("/white-bg.svg");
+              background: url("./white-bg.svg");
               background-position: 50%;
               background-size: cover;
               display: flex;
@@ -624,7 +624,7 @@ export default () => {
                 }
               }
               > img {
-                margin-top: 150px;
+                margin-top: 50px;
                 max-width: 450px;
                 width: 100%;
               }
@@ -633,15 +633,23 @@ export default () => {
             <div className={"team-title"}>Project Team</div>
             <div className={"team"}>
               <div>
-                <img alt={""} src={"/ico/slideicons/team-full.png"}></img>
+                <img alt={""} src={"./ico/slideicons/team-full.png"}></img>
               </div>
             </div>
             <div className={"link-team"}>
-              <Link to="/team/">Meet our Team</Link>
+              <Link to="./team/">Meet our Team</Link>
             </div>
             <img
               alt={""}
-              src={"/ico/slideicons/eit_climate-kic_eu_flag_black.png"}
+              src={"./ico/slideicons/eit_climate-kic_eu_flag_black.png"}
+            ></img>
+            <img
+              alt={""}
+              src={"./ico/slideicons/reach-logo2.png"}
+            ></img>
+            <img
+              alt={""}
+              src={"./ico/slideicons/xerurope-logo.png"}
             ></img>
           </div>
         </section>
